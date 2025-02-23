@@ -1,4 +1,4 @@
-From 7bfb55943f967552169f335e6352f58ec6e98d5e Mon Sep 17 00:00:00 2001
+From 6d9061d15064b80016385d592c95cca6d8ab440c Mon Sep 17 00:00:00 2001
 From: "Luke D. Jones" <luke@ljones.dev>
 Date: Sun, 2 Jun 2024 14:44:31 +1200
 Subject: [PATCH 24/28] platform/x86: asus-armoury: add apu-mem control support
@@ -149,7 +149,7 @@ index 716bf96b6b58..298f7b203d7c 100644
  	{ &charge_mode_attr_group, ASUS_WMI_DEVID_CHARGE_MODE },
  	{ &boot_sound_attr_group, ASUS_WMI_DEVID_BOOT_SOUND },
 diff --git a/include/linux/platform_data/x86/asus-wmi.h b/include/linux/platform_data/x86/asus-wmi.h
-index e1ae2c1e229c..b7e2582763a8 100644
+index 77e227ffd87b..dae9e267883e 100644
 --- a/include/linux/platform_data/x86/asus-wmi.h
 +++ b/include/linux/platform_data/x86/asus-wmi.h
 @@ -137,6 +137,8 @@

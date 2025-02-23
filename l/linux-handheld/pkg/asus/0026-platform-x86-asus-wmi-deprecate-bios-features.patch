@@ -1,4 +1,4 @@
-From d1d36ad0e6730665f32a30fe565e0c7a9de5789f Mon Sep 17 00:00:00 2001
+From 301119b798df1f67cecd1d336fb389a54dc5a80d Mon Sep 17 00:00:00 2001
 From: "Luke D. Jones" <luke@ljones.dev>
 Date: Mon, 3 Jun 2024 12:04:41 +1200
 Subject: [PATCH 26/28] platform/x86: asus-wmi: deprecate bios features
@@ -178,12 +178,12 @@ index 294364cc7478..b160173a530e 100644
  	tristate "Asus Notebook WMI Driver"
  	depends on ASUS_WMI
 diff --git a/drivers/platform/x86/asus-wmi.c b/drivers/platform/x86/asus-wmi.c
-index 9f0153ee8601..bcf0cab8f9ae 100644
+index fd7f80f65ede..03d0fd9d7651 100644
 --- a/drivers/platform/x86/asus-wmi.c
 +++ b/drivers/platform/x86/asus-wmi.c
-@@ -344,6 +344,15 @@ void set_ally_mcu_hack_available(bool enabled)
- }
- EXPORT_SYMBOL_NS_GPL(set_ally_mcu_hack_available, "ASUS_WMI");
+@@ -335,6 +335,15 @@ struct asus_wmi {
+ 
+ static bool ally_mcu_usb_plug;
  
 +#if IS_ENABLED(CONFIG_ASUS_WMI_DEPRECATED_ATTRS)
 +static void asus_wmi_show_deprecated(void)
@@ -197,7 +197,7 @@ index 9f0153ee8601..bcf0cab8f9ae 100644
  /* WMI ************************************************************************/
  
  static int asus_wmi_evaluate_method3(u32 method_id,
-@@ -734,6 +743,7 @@ static void asus_wmi_tablet_mode_get_state(struct asus_wmi *asus)
+@@ -726,6 +735,7 @@ static void asus_wmi_tablet_mode_get_state(struct asus_wmi *asus)
  }
  
  /* Charging mode, 1=Barrel, 2=USB ******************************************/
@@ -205,7 +205,7 @@ index 9f0153ee8601..bcf0cab8f9ae 100644
  static ssize_t charge_mode_show(struct device *dev,
  				   struct device_attribute *attr, char *buf)
  {
-@@ -744,12 +754,16 @@ static ssize_t charge_mode_show(struct device *dev,
+@@ -736,12 +746,16 @@ static ssize_t charge_mode_show(struct device *dev,
  	if (result < 0)
  		return result;
  
@@ -222,7 +222,7 @@ index 9f0153ee8601..bcf0cab8f9ae 100644
  static ssize_t dgpu_disable_show(struct device *dev,
  				   struct device_attribute *attr, char *buf)
  {
-@@ -760,6 +774,8 @@ static ssize_t dgpu_disable_show(struct device *dev,
+@@ -752,6 +766,8 @@ static ssize_t dgpu_disable_show(struct device *dev,
  	if (result < 0)
  		return result;
  
@@ -231,7 +231,7 @@ index 9f0153ee8601..bcf0cab8f9ae 100644
  	return sysfs_emit(buf, "%d\n", result);
  }
  
-@@ -813,8 +829,10 @@ static ssize_t dgpu_disable_store(struct device *dev,
+@@ -805,8 +821,10 @@ static ssize_t dgpu_disable_store(struct device *dev,
  	return count;
  }
  static DEVICE_ATTR_RW(dgpu_disable);
@@ -242,7 +242,7 @@ index 9f0153ee8601..bcf0cab8f9ae 100644
  static ssize_t egpu_enable_show(struct device *dev,
  				   struct device_attribute *attr, char *buf)
  {
-@@ -825,6 +843,8 @@ static ssize_t egpu_enable_show(struct device *dev,
+@@ -817,6 +835,8 @@ static ssize_t egpu_enable_show(struct device *dev,
  	if (result < 0)
  		return result;
  
@@ -251,7 +251,7 @@ index 9f0153ee8601..bcf0cab8f9ae 100644
  	return sysfs_emit(buf, "%d\n", result);
  }
  
-@@ -881,8 +901,10 @@ static ssize_t egpu_enable_store(struct device *dev,
+@@ -873,8 +893,10 @@ static ssize_t egpu_enable_store(struct device *dev,
  	return count;
  }
  static DEVICE_ATTR_RW(egpu_enable);
@@ -262,7 +262,7 @@ index 9f0153ee8601..bcf0cab8f9ae 100644
  static ssize_t egpu_connected_show(struct device *dev,
  				   struct device_attribute *attr, char *buf)
  {
-@@ -893,12 +915,16 @@ static ssize_t egpu_connected_show(struct device *dev,
+@@ -885,12 +907,16 @@ static ssize_t egpu_connected_show(struct device *dev,
  	if (result < 0)
  		return result;
  
@@ -279,7 +279,7 @@ index 9f0153ee8601..bcf0cab8f9ae 100644
  static ssize_t gpu_mux_mode_show(struct device *dev,
  				 struct device_attribute *attr, char *buf)
  {
-@@ -909,6 +935,8 @@ static ssize_t gpu_mux_mode_show(struct device *dev,
+@@ -901,6 +927,8 @@ static ssize_t gpu_mux_mode_show(struct device *dev,
  	if (result < 0)
  		return result;
  
@@ -288,7 +288,7 @@ index 9f0153ee8601..bcf0cab8f9ae 100644
  	return sysfs_emit(buf, "%d\n", result);
  }
  
-@@ -967,6 +995,7 @@ static ssize_t gpu_mux_mode_store(struct device *dev,
+@@ -959,6 +987,7 @@ static ssize_t gpu_mux_mode_store(struct device *dev,
  	return count;
  }
  static DEVICE_ATTR_RW(gpu_mux_mode);
@@ -296,7 +296,7 @@ index 9f0153ee8601..bcf0cab8f9ae 100644
  
  /* TUF Laptop Keyboard RGB Modes **********************************************/
  static ssize_t kbd_rgb_mode_store(struct device *dev,
-@@ -1090,6 +1119,7 @@ static const struct attribute_group *kbd_rgb_mode_groups[] = {
+@@ -1082,6 +1111,7 @@ static const struct attribute_group *kbd_rgb_mode_groups[] = {
  };
  
  /* Tunable: PPT: Intel=PL1, AMD=SPPT *****************************************/
@@ -304,7 +304,7 @@ index 9f0153ee8601..bcf0cab8f9ae 100644
  static ssize_t ppt_pl2_sppt_store(struct device *dev,
  				    struct device_attribute *attr,
  				    const char *buf, size_t count)
-@@ -1128,6 +1158,8 @@ static ssize_t ppt_pl2_sppt_show(struct device *dev,
+@@ -1120,6 +1150,8 @@ static ssize_t ppt_pl2_sppt_show(struct device *dev,
  {
  	struct asus_wmi *asus = dev_get_drvdata(dev);
  
@@ -313,7 +313,7 @@ index 9f0153ee8601..bcf0cab8f9ae 100644
  	return sysfs_emit(buf, "%u\n", asus->ppt_pl2_sppt);
  }
  static DEVICE_ATTR_RW(ppt_pl2_sppt);
-@@ -1170,6 +1202,8 @@ static ssize_t ppt_pl1_spl_show(struct device *dev,
+@@ -1162,6 +1194,8 @@ static ssize_t ppt_pl1_spl_show(struct device *dev,
  {
  	struct asus_wmi *asus = dev_get_drvdata(dev);
  
@@ -322,7 +322,7 @@ index 9f0153ee8601..bcf0cab8f9ae 100644
  	return sysfs_emit(buf, "%u\n", asus->ppt_pl1_spl);
  }
  static DEVICE_ATTR_RW(ppt_pl1_spl);
-@@ -1213,6 +1247,8 @@ static ssize_t ppt_fppt_show(struct device *dev,
+@@ -1205,6 +1239,8 @@ static ssize_t ppt_fppt_show(struct device *dev,
  {
  	struct asus_wmi *asus = dev_get_drvdata(dev);
  
@@ -331,7 +331,7 @@ index 9f0153ee8601..bcf0cab8f9ae 100644
  	return sysfs_emit(buf, "%u\n", asus->ppt_fppt);
  }
  static DEVICE_ATTR_RW(ppt_fppt);
-@@ -1256,6 +1292,8 @@ static ssize_t ppt_apu_sppt_show(struct device *dev,
+@@ -1248,6 +1284,8 @@ static ssize_t ppt_apu_sppt_show(struct device *dev,
  {
  	struct asus_wmi *asus = dev_get_drvdata(dev);
  
@@ -340,7 +340,7 @@ index 9f0153ee8601..bcf0cab8f9ae 100644
  	return sysfs_emit(buf, "%u\n", asus->ppt_apu_sppt);
  }
  static DEVICE_ATTR_RW(ppt_apu_sppt);
-@@ -1299,6 +1337,8 @@ static ssize_t ppt_platform_sppt_show(struct device *dev,
+@@ -1291,6 +1329,8 @@ static ssize_t ppt_platform_sppt_show(struct device *dev,
  {
  	struct asus_wmi *asus = dev_get_drvdata(dev);
  
@@ -349,7 +349,7 @@ index 9f0153ee8601..bcf0cab8f9ae 100644
  	return sysfs_emit(buf, "%u\n", asus->ppt_platform_sppt);
  }
  static DEVICE_ATTR_RW(ppt_platform_sppt);
-@@ -1342,6 +1382,8 @@ static ssize_t nv_dynamic_boost_show(struct device *dev,
+@@ -1334,6 +1374,8 @@ static ssize_t nv_dynamic_boost_show(struct device *dev,
  {
  	struct asus_wmi *asus = dev_get_drvdata(dev);
  
@@ -358,7 +358,7 @@ index 9f0153ee8601..bcf0cab8f9ae 100644
  	return sysfs_emit(buf, "%u\n", asus->nv_dynamic_boost);
  }
  static DEVICE_ATTR_RW(nv_dynamic_boost);
-@@ -1385,11 +1427,15 @@ static ssize_t nv_temp_target_show(struct device *dev,
+@@ -1377,9 +1419,12 @@ static ssize_t nv_temp_target_show(struct device *dev,
  {
  	struct asus_wmi *asus = dev_get_drvdata(dev);
  
@@ -370,11 +370,16 @@ index 9f0153ee8601..bcf0cab8f9ae 100644
 +#endif /* IS_ENABLED(CONFIG_ASUS_WMI_DEPRECATED_ATTRS) */
  
  /* Ally MCU Powersave ********************************************************/
+ 
+@@ -1414,6 +1459,7 @@ void set_ally_mcu_powersave(bool enabled)
+ }
+ EXPORT_SYMBOL_NS_GPL(set_ally_mcu_powersave, "ASUS_WMI");
+ 
 +#if IS_ENABLED(CONFIG_ASUS_WMI_DEPRECATED_ATTRS)
  static ssize_t mcu_powersave_show(struct device *dev,
  				   struct device_attribute *attr, char *buf)
  {
-@@ -1400,6 +1446,8 @@ static ssize_t mcu_powersave_show(struct device *dev,
+@@ -1424,6 +1470,8 @@ static ssize_t mcu_powersave_show(struct device *dev,
  	if (result < 0)
  		return result;
  
@@ -383,7 +388,7 @@ index 9f0153ee8601..bcf0cab8f9ae 100644
  	return sysfs_emit(buf, "%d\n", result);
  }
  
-@@ -1435,6 +1483,7 @@ static ssize_t mcu_powersave_store(struct device *dev,
+@@ -1459,6 +1507,7 @@ static ssize_t mcu_powersave_store(struct device *dev,
  	return count;
  }
  static DEVICE_ATTR_RW(mcu_powersave);
@@ -391,7 +396,7 @@ index 9f0153ee8601..bcf0cab8f9ae 100644
  
  /* Battery ********************************************************************/
  
-@@ -2308,6 +2357,7 @@ static int asus_wmi_rfkill_init(struct asus_wmi *asus)
+@@ -2332,6 +2381,7 @@ static int asus_wmi_rfkill_init(struct asus_wmi *asus)
  }
  
  /* Panel Overdrive ************************************************************/
@@ -399,7 +404,7 @@ index 9f0153ee8601..bcf0cab8f9ae 100644
  static ssize_t panel_od_show(struct device *dev,
  				   struct device_attribute *attr, char *buf)
  {
-@@ -2318,6 +2368,8 @@ static ssize_t panel_od_show(struct device *dev,
+@@ -2342,6 +2392,8 @@ static ssize_t panel_od_show(struct device *dev,
  	if (result < 0)
  		return result;
  
@@ -408,7 +413,7 @@ index 9f0153ee8601..bcf0cab8f9ae 100644
  	return sysfs_emit(buf, "%d\n", result);
  }
  
-@@ -2354,9 +2406,10 @@ static ssize_t panel_od_store(struct device *dev,
+@@ -2378,9 +2430,10 @@ static ssize_t panel_od_store(struct device *dev,
  	return count;
  }
  static DEVICE_ATTR_RW(panel_od);
@@ -420,7 +425,7 @@ index 9f0153ee8601..bcf0cab8f9ae 100644
  static ssize_t boot_sound_show(struct device *dev,
  			     struct device_attribute *attr, char *buf)
  {
-@@ -2367,6 +2420,8 @@ static ssize_t boot_sound_show(struct device *dev,
+@@ -2391,6 +2444,8 @@ static ssize_t boot_sound_show(struct device *dev,
  	if (result < 0)
  		return result;
  
@@ -429,7 +434,7 @@ index 9f0153ee8601..bcf0cab8f9ae 100644
  	return sysfs_emit(buf, "%d\n", result);
  }
  
-@@ -2402,8 +2457,10 @@ static ssize_t boot_sound_store(struct device *dev,
+@@ -2426,8 +2481,10 @@ static ssize_t boot_sound_store(struct device *dev,
  	return count;
  }
  static DEVICE_ATTR_RW(boot_sound);
@@ -440,7 +445,7 @@ index 9f0153ee8601..bcf0cab8f9ae 100644
  static ssize_t mini_led_mode_show(struct device *dev,
  				   struct device_attribute *attr, char *buf)
  {
-@@ -2434,6 +2491,8 @@ static ssize_t mini_led_mode_show(struct device *dev,
+@@ -2458,6 +2515,8 @@ static ssize_t mini_led_mode_show(struct device *dev,
  		}
  	}
  
@@ -449,7 +454,7 @@ index 9f0153ee8601..bcf0cab8f9ae 100644
  	return sysfs_emit(buf, "%d\n", value);
  }
  
-@@ -2504,10 +2563,13 @@ static ssize_t available_mini_led_mode_show(struct device *dev,
+@@ -2528,10 +2587,13 @@ static ssize_t available_mini_led_mode_show(struct device *dev,
  		return sysfs_emit(buf, "0 1 2\n");
  	}
  
@@ -463,7 +468,7 @@ index 9f0153ee8601..bcf0cab8f9ae 100644
  
  /* Quirks *********************************************************************/
  
-@@ -3795,6 +3857,7 @@ static int throttle_thermal_policy_set_default(struct asus_wmi *asus)
+@@ -3819,6 +3881,7 @@ static int throttle_thermal_policy_set_default(struct asus_wmi *asus)
  	return throttle_thermal_policy_write(asus);
  }
  
@@ -471,7 +476,7 @@ index 9f0153ee8601..bcf0cab8f9ae 100644
  static ssize_t throttle_thermal_policy_show(struct device *dev,
  				   struct device_attribute *attr, char *buf)
  {
-@@ -3838,6 +3901,7 @@ static ssize_t throttle_thermal_policy_store(struct device *dev,
+@@ -3862,6 +3925,7 @@ static ssize_t throttle_thermal_policy_store(struct device *dev,
   * Throttle thermal policy: 0 - default, 1 - overboost, 2 - silent
   */
  static DEVICE_ATTR_RW(throttle_thermal_policy);
@@ -479,7 +484,7 @@ index 9f0153ee8601..bcf0cab8f9ae 100644
  
  /* Platform profile ***********************************************************/
  static int asus_wmi_platform_profile_get(struct platform_profile_handler *pprof,
-@@ -4435,27 +4499,29 @@ static struct attribute *platform_attributes[] = {
+@@ -4459,27 +4523,29 @@ static struct attribute *platform_attributes[] = {
  	&dev_attr_camera.attr,
  	&dev_attr_cardr.attr,
  	&dev_attr_touchpad.attr,
@@ -527,7 +532,7 @@ index 9f0153ee8601..bcf0cab8f9ae 100644
  	NULL
  };
  
-@@ -4477,7 +4543,11 @@ static umode_t asus_sysfs_is_visible(struct kobject *kobj,
+@@ -4501,7 +4567,11 @@ static umode_t asus_sysfs_is_visible(struct kobject *kobj,
  		devid = ASUS_WMI_DEVID_LID_RESUME;
  	else if (attr == &dev_attr_als_enable.attr)
  		devid = ASUS_WMI_DEVID_ALS_ENABLE;
@@ -540,7 +545,7 @@ index 9f0153ee8601..bcf0cab8f9ae 100644
  		devid = ASUS_WMI_DEVID_CHARGE_MODE;
  	else if (attr == &dev_attr_egpu_enable.attr)
  		ok = asus->egpu_enable_available;
-@@ -4515,6 +4585,7 @@ static umode_t asus_sysfs_is_visible(struct kobject *kobj,
+@@ -4539,6 +4609,7 @@ static umode_t asus_sysfs_is_visible(struct kobject *kobj,
  		ok = asus->mini_led_dev_id != 0;
  	else if (attr == &dev_attr_available_mini_led_mode.attr)
  		ok = asus->mini_led_dev_id != 0;
@@ -548,7 +553,7 @@ index 9f0153ee8601..bcf0cab8f9ae 100644
  
  	if (devid != -1) {
  		ok = !(asus_wmi_get_devstate_simple(asus, devid) < 0);
-@@ -4766,6 +4837,7 @@ static int asus_wmi_add(struct platform_device *pdev)
+@@ -4790,6 +4861,7 @@ static int asus_wmi_add(struct platform_device *pdev)
  	}
  
  	/* ensure defaults for tunables */
@@ -556,7 +561,7 @@ index 9f0153ee8601..bcf0cab8f9ae 100644
  	asus->ppt_pl2_sppt = 5;
  	asus->ppt_pl1_spl = 5;
  	asus->ppt_apu_sppt = 5;
-@@ -4787,17 +4859,18 @@ static int asus_wmi_add(struct platform_device *pdev)
+@@ -4811,17 +4883,18 @@ static int asus_wmi_add(struct platform_device *pdev)
  		asus->gpu_mux_dev = ASUS_WMI_DEVID_GPU_MUX;
  	else if (asus_wmi_dev_is_present(asus, ASUS_WMI_DEVID_GPU_MUX_VIVO))
  		asus->gpu_mux_dev = ASUS_WMI_DEVID_GPU_MUX_VIVO;
