@@ -1,4 +1,4 @@
-From 95b7249442aae720698f3faef19df8d0da9adef3 Mon Sep 17 00:00:00 2001
+From 37fd56892475a50f3ce0c65b06b78272cd6b2b25 Mon Sep 17 00:00:00 2001
 From: "Luke D. Jones" <luke@ljones.dev>
 Date: Mon, 26 Aug 2024 12:49:35 +1200
 Subject: [PATCH 07/28] hid-asus-ally: Add joystick LED ring support
@@ -15,8 +15,8 @@ Signed-off-by: Luke D. Jones <luke@ljones.dev>
  drivers/hid/Makefile        |   1 +
  drivers/hid/hid-asus-ally.c | 628 ++++++++++++++++++++++++++++++++++++
  drivers/hid/hid-asus-ally.h |  38 +++
- drivers/hid/hid-asus.c      | 107 +-----
- 5 files changed, 690 insertions(+), 93 deletions(-)
+ drivers/hid/hid-asus.c      | 108 +------
+ 5 files changed, 690 insertions(+), 94 deletions(-)
  create mode 100644 drivers/hid/hid-asus-ally.c
  create mode 100644 drivers/hid/hid-asus-ally.h
 
@@ -731,7 +731,7 @@ index 000000000000..eb8617c80c2a
 +	xpad_cmd_len_adz = 0x02,
 +};
 diff --git a/drivers/hid/hid-asus.c b/drivers/hid/hid-asus.c
-index 93217442b4b6..fb29486478f7 100644
+index a486ebe6bee0..fb29486478f7 100644
 --- a/drivers/hid/hid-asus.c
 +++ b/drivers/hid/hid-asus.c
 @@ -52,9 +52,9 @@ MODULE_DESCRIPTION("Asus HID Keyboard and TouchPad");
@@ -747,7 +747,7 @@ index 93217442b4b6..fb29486478f7 100644
  
  #define SUPPORT_KBD_BACKLIGHT BIT(0)
  
-@@ -539,91 +539,9 @@ static bool asus_kbd_wmi_led_control_present(struct hid_device *hdev)
+@@ -539,92 +539,9 @@ static bool asus_kbd_wmi_led_control_present(struct hid_device *hdev)
  	return !!(value & ASUS_WMI_DSTS_PRESENCE_BIT);
  }
  
@@ -827,7 +827,8 @@ index 93217442b4b6..fb29486478f7 100644
 -			 "Please update your MCU with official ASUS firmware release\n",
 -			 min_version);
 -	} else {
--		set_ally_mcu_hack_available(false);
+-		set_ally_mcu_hack(false);
+-		set_ally_mcu_powersave(true);
 -	}
 -}
 -
@@ -839,7 +840,7 @@ index 93217442b4b6..fb29486478f7 100644
  	unsigned char kbd_func;
  	int ret;
  
-@@ -647,14 +565,6 @@ static int asus_kbd_register_leds(struct hid_device *hdev)
+@@ -648,14 +565,6 @@ static int asus_kbd_register_leds(struct hid_device *hdev)
  			if (ret < 0)
  				return ret;
  		}
@@ -854,7 +855,7 @@ index 93217442b4b6..fb29486478f7 100644
  	} else {
  		/* Initialize keyboard */
  		ret = asus_kbd_init(hdev, FEATURE_KBD_REPORT_ID);
-@@ -1124,6 +1034,17 @@ static int asus_probe(struct hid_device *hdev, const struct hid_device_id *id)
+@@ -1125,6 +1034,17 @@ static int asus_probe(struct hid_device *hdev, const struct hid_device_id *id)
  
  	drvdata->quirks = id->driver_data;
  
@@ -873,5 +874,5 @@ index 93217442b4b6..fb29486478f7 100644
  	 * T90CHI's keyboard dock returns same ID values as T100CHI's dock.
  	 * Thus, identify T90CHI dock with product name string.
 -- 
-2.48.1
+2.47.1
 

@@ -1,4 +1,4 @@
-From 3de5a118dcceb6dec4116cce295a0c1c893f1623 Mon Sep 17 00:00:00 2001
+From b5f330b0e9848b00defcb7423e26a248984b17df Mon Sep 17 00:00:00 2001
 From: "Luke D. Jones" <luke@ljones.dev>
 Date: Sun, 6 Oct 2024 21:22:40 +1300
 Subject: [PATCH 17/28] hid-asus-ally: add JS response curves
@@ -237,5 +237,5 @@ index 69f59592dd50..c83817589082 100644
  	static struct attribute *_fname##_attrs[] = {                     \
  		&dev_attr_##_fname.attr,                                  \
 -- 
-2.48.1
+2.47.1
 

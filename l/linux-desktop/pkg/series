@@ -6,7 +6,7 @@ asus/0002-drm-amd-display-Avoid-divide-by-zero-by-initializing.patch
 asus/0003-hid-add-VID-PID-for-ASUS-ROG-RAIKIRI-PRO.patch
 asus/0004-hid-asus-check-ROG-Ally-MCU-version-and-warn.patch
 asus/0005-platform-x86-asus-wmi-Refactor-Ally-suspend-resume.patch
-asus/0006-hid-asus-set-mcu-hack-to-off-if-required-MCU-version.patch
+asus/0006-hid-asus-set-mcu-hack-off-and-powersave-on-in-MCU-FW.patch
 asus/0007-hid-asus-ally-Add-joystick-LED-ring-support.patch
 asus/0008-hid-asus-ally-initial-Ally-X-gamepad.patch
 asus/0009-hid-asus-ally-initial-gamepad-configuration.patch
@@ -29,17 +29,3 @@ asus/0025-platform-x86-asus-armoury-add-core-count-control.patch
 asus/0026-platform-x86-asus-wmi-deprecate-bios-features.patch
 asus/0027-platform-x86-asus-armoury-add-the-ppt_-and-nv_-tunin.patch
 asus/0028-backport-fix-fw_attr-use.patch
-surface/0001-secureboot.patch
-surface/0002-surface3-oemb.patch
-surface/0003-mwifiex.patch
-surface/0004-ath10k.patch
-surface/0005-ipts.patch
-surface/0006-ithc.patch
-surface/0007-surface-sam-over-hid.patch
-surface/0008-surface-button.patch
-surface/0009-surface-typecover.patch
-surface/0010-surface-shutdown.patch
-surface/0011-surface-gpe.patch
-surface/0012-cameras.patch
-surface/0013-amd-gpio.patch
-surface/0014-rtc.patch

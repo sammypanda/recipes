@@ -1,4 +1,4 @@
-From 925961098216ea72e912a26050ce878380f02468 Mon Sep 17 00:00:00 2001
+From 12007aeb5b356c12c258295f838ba77e135348de Mon Sep 17 00:00:00 2001
 From: "Luke D. Jones" <luke@ljones.dev>
 Date: Sun, 22 Sep 2024 21:40:46 +1200
 Subject: [PATCH 21/28] platform/x86: asus-wmi: export symbols used for
@@ -12,15 +12,15 @@ Also does a slight refactor of internals of these functions.
 Signed-off-by: Luke D. Jones <luke@ljones.dev>
 Reviewed-by: Mario Limonciello <mario.limonciello@amd.com>
 ---
- drivers/platform/x86/asus-wmi.c            | 44 ++++++++++++++++++++--
- include/linux/platform_data/x86/asus-wmi.h | 10 +++++
+ drivers/platform/x86/asus-wmi.c            | 45 ++++++++++++++++++++--
+ include/linux/platform_data/x86/asus-wmi.h |  9 +++++
  2 files changed, 51 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/platform/x86/asus-wmi.c b/drivers/platform/x86/asus-wmi.c
-index 2afb949ac397..c39b79571ec2 100644
+index 8b941b19da7d..60ba34ea437f 100644
 --- a/drivers/platform/x86/asus-wmi.c
 +++ b/drivers/platform/x86/asus-wmi.c
-@@ -398,7 +398,7 @@ int asus_wmi_evaluate_method(u32 method_id, u32 arg0, u32 arg1, u32 *retval)
+@@ -389,7 +389,7 @@ int asus_wmi_evaluate_method(u32 method_id, u32 arg0, u32 arg1, u32 *retval)
  {
  	return asus_wmi_evaluate_method3(method_id, arg0, arg1, 0, retval);
  }
@@ -29,12 +29,13 @@ index 2afb949ac397..c39b79571ec2 100644
  
  static int asus_wmi_evaluate_method5(u32 method_id,
  		u32 arg0, u32 arg1, u32 arg2, u32 arg3, u32 arg4, u32 *retval)
-@@ -562,12 +562,50 @@ static int asus_wmi_get_devstate(struct asus_wmi *asus, u32 dev_id, u32 *retval)
+@@ -553,12 +553,51 @@ static int asus_wmi_get_devstate(struct asus_wmi *asus, u32 dev_id, u32 *retval)
  	return 0;
  }
  
--static int asus_wmi_set_devstate(u32 dev_id, u32 ctrl_param,
+-int asus_wmi_set_devstate(u32 dev_id, u32 ctrl_param,
 -				 u32 *retval)
++
 +/**
 + * asus_wmi_get_devstate_dsts() - Get the WMI function state.
 + * @dev_id: The WMI method ID to call.
@@ -83,18 +84,19 @@ index 2afb949ac397..c39b79571ec2 100644
  /* Helper for special devices with magic return codes */
  static int asus_wmi_get_devstate_bits(struct asus_wmi *asus,
 diff --git a/include/linux/platform_data/x86/asus-wmi.h b/include/linux/platform_data/x86/asus-wmi.h
-index f1b96f90e8e2..7c886a93d554 100644
+index 5d93beeace0d..e7a1bbaa285f 100644
 --- a/include/linux/platform_data/x86/asus-wmi.h
 +++ b/include/linux/platform_data/x86/asus-wmi.h
-@@ -159,11 +159,21 @@
- 
+@@ -160,6 +160,7 @@
  #if IS_REACHABLE(CONFIG_ASUS_WMI)
- void set_ally_mcu_hack_available(bool enabled);
+ void set_ally_mcu_hack(bool enabled);
+ void set_ally_mcu_powersave(bool enabled);
 +int asus_wmi_get_devstate_dsts(u32 dev_id, u32 *retval);
-+int asus_wmi_set_devstate(u32 dev_id, u32 ctrl_param, u32 *retval);
+ int asus_wmi_set_devstate(u32 dev_id, u32 ctrl_param, u32 *retval);
  int asus_wmi_evaluate_method(u32 method_id, u32 arg0, u32 arg1, u32 *retval);
  #else
- static inline void set_ally_mcu_hack_available(bool enabled) {
+@@ -173,6 +174,14 @@ static inline int asus_wmi_set_devstate(u32 dev_id, u32 ctrl_param, u32 *retval)
+ {
  	return -ENODEV;
  }
 +static inline int asus_wmi_get_devstate_dsts(u32 dev_id, u32 *retval)
@@ -109,5 +111,5 @@ index f1b96f90e8e2..7c886a93d554 100644
  					   u32 *retval)
  {
 -- 
-2.48.1
+2.47.1
 
