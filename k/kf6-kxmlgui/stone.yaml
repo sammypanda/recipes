@@ -3,32 +3,31 @@
 #
 # SPDX-License-Identifier: MPL-2.0
 #
-name        : kf6-kconfigwidgets
+name        : kf6-kxmlgui
 version     : 6.11.0
-release     : 2
+release     : 1
 upstreams   :
-    - https://download.kde.org/stable/frameworks/6.11/kconfigwidgets-6.11.0.tar.xz : 28a1bb125161fe9ab0dbfa899433512e928669be31ce149fa25191a24a50242a
+    - https://download.kde.org/stable/frameworks/6.11/kxmlgui-6.11.0.tar.xz : 69c3a6a6363bdbe3ccbace76e23c6ccec173eb0f9c1954ef7317d998d6edb6fc
 homepage    : https://community.kde.org/Frameworks
 license     :
-    - BSD-3-Clause
-    - GPL-2.0-or-later
     - LGPL-2.0-only
     - LGPL-2.0-or-later
-    - LGPL-2.1-only
-    - MIT
-summary     : Widgets for configuration dialogs
+    - LGPL-2.1-or-later
+summary     : Framework for managing menu and toolbar actions.
 description : |
-    Widgets for configuration dialogs
+    Framework for managing menu and toolbar actions.
 builddeps   :
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
-    - cmake(KF6Codecs)
-    - cmake(KF6ColorScheme)
     - cmake(KF6Config)
+    - cmake(KF6ConfigWidgets)
     - cmake(KF6CoreAddons)
+    - cmake(KF6GlobalAccel)
     - cmake(KF6GuiAddons)
     - cmake(KF6I18n)
-    - cmake(KF6WidgetsAddons)
+    - cmake(KF6IconThemes)
+    - cmake(KF6ItemViews)
+    # TODO package pyside bindings, note that they need to be subpackaged. Let's wait till something needs them
 setup       : |
     %cmake_kf6
 build       : |
@@ -38,6 +37,4 @@ install     : |
 packages    :
     - "%(name)-devel":
         rundeps:
-            - cmake(KF6Codecs)
-            - cmake(KF6ColorScheme)
-            - cmake(KF6WidgetsAddons)
+            - cmake(KF6ConfigWidgets)

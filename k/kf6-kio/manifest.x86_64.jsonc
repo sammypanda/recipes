@@ -111,7 +111,6 @@
 				"/usr/share/dbus-1/services/org.kde.kioexecd6.service",
 				"/usr/share/dbus-1/services/org.kde.kpasswdserver6.service",
 				"/usr/share/dbus-1/services/org.kde.kssld6.service",
-				"/usr/share/kdevappwizard/templates/kioworker6.tar.bz2",
 				"/usr/share/kf6/searchproviders/7digital.desktop",
 				"/usr/share/kf6/searchproviders/acronym.desktop",
 				"/usr/share/kf6/searchproviders/amazon.desktop",
@@ -417,6 +416,13 @@
 				"pkgconfig(libxslt)"
 			],
 			"depends": [
+				"cmake(KF6Bookmarks)",
+				"cmake(KF6Completion)",
+				"cmake(KF6ItemViews)",
+				"cmake(KF6JobWidgets)",
+				"cmake(KF6Service)",
+				"cmake(KF6Solid)",
+				"cmake(KF6WindowSystem)",
 				"kf6-kio",
 				"soname(libKF6KIOFileWidgets.so.6(x86_64))",
 				"soname(libKF6KIOWidgets.so.6(x86_64))",
@@ -670,7 +676,8 @@
 				"/usr/lib/libKF6KIOFileWidgets.so",
 				"/usr/lib/libKF6KIOGui.so",
 				"/usr/lib/libKF6KIOWidgets.so",
-				"/usr/lib/qt6/plugins/designer/kio6widgets.so"
+				"/usr/lib/qt6/plugins/designer/kio6widgets.so",
+				"/usr/share/kdevappwizard/templates/kioworker6.tar.bz2"
 			],
 			"name": "kf6-kio-devel",
 			"provides": [
@@ -975,6 +982,6 @@
 		}
 	},
 	"source-name": "kf6-kio",
-	"source-release": "1",
-	"source-version": "6.11"
+	"source-release": "2",
+	"source-version": "6.11.0"
 }

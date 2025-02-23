@@ -3,32 +3,28 @@
 #
 # SPDX-License-Identifier: MPL-2.0
 #
-name        : kf6-kconfigwidgets
+name        : kf6-kparts
 version     : 6.11.0
-release     : 2
+release     : 1
 upstreams   :
-    - https://download.kde.org/stable/frameworks/6.11/kconfigwidgets-6.11.0.tar.xz : 28a1bb125161fe9ab0dbfa899433512e928669be31ce149fa25191a24a50242a
+    - https://download.kde.org/stable/frameworks/6.11/kparts-6.11.0.tar.xz : 3995f3556aba434de7b13dae099b51a0a86aeade60ba1e06592836d40669bb6a
 homepage    : https://community.kde.org/Frameworks
 license     :
-    - BSD-3-Clause
-    - GPL-2.0-or-later
     - LGPL-2.0-only
     - LGPL-2.0-or-later
-    - LGPL-2.1-only
-    - MIT
-summary     : Widgets for configuration dialogs
+    - LGPL-2.1-or-later
+summary     : Plugin framework for user interface components
 description : |
-    Widgets for configuration dialogs
+    Plugin framework for user interface components
 builddeps   :
+    - binary(bzip2)
     # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
     - cmake(ECM)
-    - cmake(KF6Codecs)
-    - cmake(KF6ColorScheme)
     - cmake(KF6Config)
     - cmake(KF6CoreAddons)
-    - cmake(KF6GuiAddons)
     - cmake(KF6I18n)
-    - cmake(KF6WidgetsAddons)
+    - cmake(KF6KIO)
+    - cmake(KF6XmlGui)
 setup       : |
     %cmake_kf6
 build       : |
@@ -37,7 +33,5 @@ install     : |
     %cmake_install
 packages    :
     - "%(name)-devel":
-        rundeps:
-            - cmake(KF6Codecs)
-            - cmake(KF6ColorScheme)
-            - cmake(KF6WidgetsAddons)
+        paths:
+            - /usr/share/kdevappwizard
