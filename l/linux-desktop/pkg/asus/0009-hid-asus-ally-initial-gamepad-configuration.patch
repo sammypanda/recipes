@@ -1,4 +1,4 @@
-From c1836bdc693c477dbda3df225f1136c7cd1a8520 Mon Sep 17 00:00:00 2001
+From 798d643019749282a8100a7528c21c7160cf09dd Mon Sep 17 00:00:00 2001
 From: "Luke D. Jones" <luke@ljones.dev>
 Date: Wed, 2 Oct 2024 23:51:36 +1300
 Subject: [PATCH 09/28] hid-asus-ally: initial gamepad configuration
@@ -385,5 +385,5 @@ index 458d02996bca..2b298ad4da0e 100644
  #define ALLY_DEVICE_ATTR_RW(_name, _sysfs_name)    \
  	struct device_attribute dev_attr_##_name = \
 -- 
-2.48.1
+2.47.1
 

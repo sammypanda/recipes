@@ -1,4 +1,4 @@
-From 55b7c848f36ab09fdc1bd2bf2335038c4b7a3bda Mon Sep 17 00:00:00 2001
+From 241712ace632e2b45f06466c32e6ca85a13f3010 Mon Sep 17 00:00:00 2001
 From: "Luke D. Jones" <luke@ljones.dev>
 Date: Sun, 1 Sep 2024 14:30:37 +1200
 Subject: [PATCH 05/28] platform/x86: asus-wmi: Refactor Ally suspend/resume
@@ -186,5 +186,5 @@ index 8bd187e8b47f..5033dd45103c 100644
  	platform_driver_unregister(&driver->platform_driver);
  	used = false;
 -- 
-2.48.1
+2.47.1
 

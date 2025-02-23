@@ -1,4 +1,4 @@
-From 19749710370dd5da0d976b996b72facb78cdab2b Mon Sep 17 00:00:00 2001
+From f0da13dd1d2173d64058bbe2c214844a959a527a Mon Sep 17 00:00:00 2001
 From: Luke Jones <luke@ljones.dev>
 Date: Mon, 10 Feb 2025 17:15:01 +1300
 Subject: [PATCH 18/28] hid-asus-ally: mcu_version attribute
@@ -62,5 +62,5 @@ index ad1181e12410..b77b837de729 100644
  MODULE_DESCRIPTION("HID Driver for ASUS ROG Ally gamepad configuration.");
  MODULE_LICENSE("GPL");
 -- 
-2.48.1
+2.47.1
 
