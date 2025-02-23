@@ -259,6 +259,9 @@
 				"cmake(KF6WidgetsAddons)"
 			],
 			"depends": [
+				"cmake(KF6Codecs)",
+				"cmake(KF6ColorScheme)",
+				"cmake(KF6WidgetsAddons)",
 				"kf6-kconfigwidgets",
 				"soname(libKF6ConfigWidgets.so.6(x86_64))",
 				"soname(libQt6Core.so.6(x86_64))",
@@ -315,6 +318,6 @@
 		}
 	},
 	"source-name": "kf6-kconfigwidgets",
-	"source-release": "1",
-	"source-version": "6.11"
+	"source-release": "2",
+	"source-version": "6.11.0"
 }
