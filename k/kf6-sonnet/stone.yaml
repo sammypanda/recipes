@@ -1,0 +1,30 @@
+#
+# SPDX-FileCopyrightText: © 2020-2025 Serpent OS Developers
+#
+# SPDX-License-Identifier: MPL-2.0
+#
+name        : kf6-sonnet
+version     : 6.11
+release     : 1
+upstreams   :
+    - https://download.kde.org/stable/frameworks/6.11/sonnet-6.11.0.tar.xz : 19441de62d9d97f61e48d26e003543e75607b2ba8f6e4feb19f956289af21d60
+homepage    : https://community.kde.org/Frameworks
+license     :
+    - BSD-3-Clause
+    - LGPL-2.0-or-later
+    - LGPL-2.1-or-later
+summary     : Multi-language spell checker
+description : |
+    Multi-language spell checker
+builddeps   :
+    # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
+    - cmake(ECM)
+    - cmake(Qt6Qml)
+    - pkgconfig(hunspell)
+    # TODO Add voikko, aspell, and/or hspell
+setup       : |
+    %cmake_kf6
+build       : |
+    %cmake_build
+install     : |
+    %cmake_install
