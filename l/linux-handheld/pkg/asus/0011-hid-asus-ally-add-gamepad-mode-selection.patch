@@ -1,4 +1,4 @@
-From 062f2463a23713df97da240af6a675a5dd563b9d Mon Sep 17 00:00:00 2001
+From caebd8ceb82e70fd275b800eda96cd520aad8cd7 Mon Sep 17 00:00:00 2001
 From: "Luke D. Jones" <luke@ljones.dev>
 Date: Fri, 25 Oct 2024 08:56:54 +0200
 Subject: [PATCH 11/28] hid-asus-ally: add gamepad mode selection

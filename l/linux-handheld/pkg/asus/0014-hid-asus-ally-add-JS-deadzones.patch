@@ -1,4 +1,4 @@
-From 246c1808768272edd3dc4e9f44df0ebf38d7ad90 Mon Sep 17 00:00:00 2001
+From 49d65e5d97c26dc4a1531bdc7bffa1945ddb8289 Mon Sep 17 00:00:00 2001
 From: "Luke D. Jones" <luke@ljones.dev>
 Date: Sat, 5 Oct 2024 21:32:41 +1300
 Subject: [PATCH 14/28] hid-asus-ally: add JS deadzones

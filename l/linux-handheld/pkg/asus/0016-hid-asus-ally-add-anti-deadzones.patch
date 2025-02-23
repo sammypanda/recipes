@@ -1,4 +1,4 @@
-From cc5bf84c461809b73d76a97b618a6ad96e8ba6a3 Mon Sep 17 00:00:00 2001
+From 7661096726152b9313ace6690754c3866288265b Mon Sep 17 00:00:00 2001
 From: "Luke D. Jones" <luke@ljones.dev>
 Date: Sun, 6 Oct 2024 19:49:24 +1300
 Subject: [PATCH 16/28] hid-asus-ally: add anti-deadzones

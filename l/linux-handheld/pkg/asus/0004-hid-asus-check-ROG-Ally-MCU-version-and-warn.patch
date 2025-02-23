@@ -1,4 +1,4 @@
-From 3668867cd10aabb778bf81caac5a6cf2c94ee21b Mon Sep 17 00:00:00 2001
+From d191e8b995513008d4057c921c447691e76c265b Mon Sep 17 00:00:00 2001
 From: "Luke D. Jones" <luke@ljones.dev>
 Date: Tue, 28 Jan 2025 19:29:27 +1300
 Subject: [PATCH 04/28] hid-asus: check ROG Ally MCU version and warn

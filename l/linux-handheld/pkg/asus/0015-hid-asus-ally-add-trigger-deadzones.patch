@@ -1,4 +1,4 @@
-From 2aba4cb8837a9b30bc089cb8e291b70882e904e8 Mon Sep 17 00:00:00 2001
+From 59f6853553b80a2af27b005720469d938db8eb70 Mon Sep 17 00:00:00 2001
 From: "Luke D. Jones" <luke@ljones.dev>
 Date: Sat, 5 Oct 2024 21:37:27 +1300
 Subject: [PATCH 15/28] hid-asus-ally: add trigger deadzones

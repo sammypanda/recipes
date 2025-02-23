@@ -1,4 +1,4 @@
-From e6e2368dd5119a223e45bdfe69b348855f0568a5 Mon Sep 17 00:00:00 2001
+From 88d7a20fe7eefea17c14db6d864dfdcc51faae08 Mon Sep 17 00:00:00 2001
 From: "Luke D. Jones" <luke@ljones.dev>
 Date: Sat, 5 Oct 2024 15:40:09 +1300
 Subject: [PATCH 12/28] hid-asus-ally: Turbo settings for buttons
