@@ -495,6 +495,10 @@
 				"pkgconfig(gl)",
 				"pkgconfig(libzstd)",
 				"pkgconfig(vulkan)",
+				"pkgconfig(xcb-cursor)",
+				"pkgconfig(xcb-icccm)",
+				"pkgconfig(xcb-keysyms)",
+				"pkgconfig(xcb-util)",
 				"pkgconfig(xkbcommon)",
 				"qt6-base",
 				"soname(ld-linux-x86-64.so.2(x86_64))",
@@ -4562,6 +4566,6 @@
 		}
 	},
 	"source-name": "qt6-base",
-	"source-release": "2",
+	"source-release": "3",
 	"source-version": "6.8.2"
 }
