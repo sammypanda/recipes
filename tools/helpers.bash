@@ -73,11 +73,11 @@ function cpesearch() {
     fi
 }
 
-# Goes to the root directory of the serpent recipes
+# Goes to the root directory of the AerynOS recipes
 # git repository from anywhere on the filesystem.
 # This function will only work if this script is sourced
 # by your bash shell.
-function gotoaerynosrepo() {
+function gotoaosrepo() {
     cd "$(dirname "$(readlink "${BASH_SOURCE[0]}")")/../" || return 1
 }
 # deprecated - use gotoaerynosrepo
