@@ -4,10 +4,9 @@
 	"packages": {
 		"device-quirks": {
 			"depends": [
-				"acpica",
+				"binary(acpibin)",
 				"binary(cpio)",
-				"ethtool",
-				"systemd"
+				"sysbinary(ethtool)"
 			],
 			"files": [
 				"/usr/bin/controller-wake",
