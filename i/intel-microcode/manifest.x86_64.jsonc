@@ -160,6 +160,6 @@
 		}
 	},
 	"source-name": "intel-microcode",
-	"source-release": "10",
+	"source-release": "11",
 	"source-version": "20250211"
 }
