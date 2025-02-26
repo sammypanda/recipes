@@ -13,15 +13,18 @@
 				"/usr/share/gnome-background-properties/austin.xml",
 				"/usr/share/gnome-background-properties/marc.xml",
 				"/usr/share/gnome-background-properties/mike.xml",
+				"/usr/share/icons/aerynos-logo-dark.png",
+				"/usr/share/icons/aerynos-logo.png",
 				"/usr/share/icons/serpent-logo-dark.png",
 				"/usr/share/icons/serpent-logo.png",
 				"/usr/share/icons/serpentos-logo.svg",
+				"/usr/share/pixmaps/system-logo-black.png",
 				"/usr/share/pixmaps/system-logo-white.png"
 			],
 			"name": "serpent-artwork"
 		}
 	},
 	"source-name": "serpent-artwork",
-	"source-release": "8",
+	"source-release": "9",
 	"source-version": "1"
 }
