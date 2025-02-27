@@ -5,7 +5,7 @@
 #
 name        : serpent-artwork
 version     : 1
-release     : 10
+release     : 11
 summary     : AerynOS / Serpent OS Artwork
 license     : Distributable
 homepage    : https://www.aerynos.com/
@@ -25,8 +25,8 @@ install     : |
     # TODO: Install 24x24 and 48x48 icons for the system logo by mutating the SVG
 
     cd ../brand.git
-    %install_file png/logo-black_192.png %(installroot)%(datadir)/icons/aerynos-logo.png
-    %install_file png/logo-white_192.png %(installroot)%(datadir)/icons/aerynos-logo-dark.png
+    %install_file png/logo-black_128.png %(installroot)%(datadir)/icons/aerynos-logo.png
+    %install_file png/logo-white_128.png %(installroot)%(datadir)/icons/aerynos-logo-dark.png
 
 
     %install_dir %(installroot)%(datadir)/pixmaps
