@@ -5,13 +5,13 @@
 #
 name        : serpent-artwork
 version     : 1
-release     : 9
+release     : 10
 summary     : AerynOS / Serpent OS Artwork
 license     : Distributable
 homepage    : https://www.aerynos.com/
 upstreams   :
     - https://github.com/serpent-os/artwork/archive/refs/tags/v1.tar.gz : 34d2770f2bd59307d5fa9ff535ae260f2514ba858b9c4fce39b2ab45de56f3fe
-    - git|https://github.com/AerynOS/brand.git : 03bdf28e895a191d9d161b9271ea2b7c4c19093b
+    - git|https://github.com/AerynOS/brand.git : eef27c447f2ccb4b0fde45d1db3651ee3a9822b5
 description : |
     Default artwork for Serpent OS
 builddeps   :
@@ -25,8 +25,8 @@ install     : |
     # TODO: Install 24x24 and 48x48 icons for the system logo by mutating the SVG
 
     cd ../brand.git
-    %install_file png/logo-black.png %(installroot)%(datadir)/icons/aerynos-logo.png
-    %install_file png/logo-white.png %(installroot)%(datadir)/icons/aerynos-logo-dark.png
+    %install_file png/logo-black_192.png %(installroot)%(datadir)/icons/aerynos-logo.png
+    %install_file png/logo-white_192.png %(installroot)%(datadir)/icons/aerynos-logo-dark.png
 
 
     %install_dir %(installroot)%(datadir)/pixmaps
