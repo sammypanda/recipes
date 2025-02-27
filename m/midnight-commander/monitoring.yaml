@@ -1,7 +1,7 @@
 releases:
-  id: 1970
-  rss: ~
+  id: ~
+  rss: https://github.com/MidnightCommander/mc/releases.atom
 security:
   cpe:
-  - vendor: mesa3d
-    product: mesa
+  - vendor: midnight_commander
+    product: midnight_commander
