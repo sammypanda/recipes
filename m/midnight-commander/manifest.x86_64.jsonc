@@ -10,16 +10,13 @@
 				"binary(gettext)",
 				"binary(libtool)",
 				"binary(make)",
-				"glib2-devel",
 				"gpm-devel",
-				"libssh2-devel",
-				"slang2-devel"
+				"pkgconfig(glib-2.0)",
+				"pkgconfig(libssh2)",
+				"pkgconfig(slang)"
 			],
 			"depends": [
-				"e2fsprogs",
-				"gpm",
 				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
-				"slang2",
 				"soname(libc.so.6(x86_64))",
 				"soname(libglib-2.0.so.0(x86_64))",
 				"soname(libslang.so.2(x86_64))",

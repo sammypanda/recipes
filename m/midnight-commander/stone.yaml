@@ -21,25 +21,20 @@ description : |
 license     :
     - GPL-3.0-only
 networking  : false
-rundeps     :
-    - e2fsprogs
-    - gpm
-    - slang2
 builddeps   :
-    - binary(make)
     - binary(autoconf)
     - binary(automake)
-    - binary(gettext)
     - binary(autopoint)
+    - binary(gettext)
     - binary(libtool)
-    - glib2-devel
+    - binary(make)
+    - pkgconfig(glib-2.0)
+    - pkgconfig(libssh2)
+    - pkgconfig(slang)
     - gpm-devel
-    - libssh2-devel
-    - slang2-devel
 setup       : |
     %patch %(pkgdir)/patches/0001-Support-stateless-fallback-of-mc-configuration.patch
-    ./autogen.sh
-    %configure
+    %autogen
 build       : |
     %make
 install     : |
