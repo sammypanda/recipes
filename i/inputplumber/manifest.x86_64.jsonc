@@ -93,6 +93,7 @@
 				"/usr/share/inputplumber/devices/60-xbox_one_gamepad.yaml",
 				"/usr/share/inputplumber/devices/69-ignore_generic.yaml",
 				"/usr/share/inputplumber/devices/70-generic_gamepad.yaml",
+				"/usr/share/inputplumber/profiles/debug.yaml",
 				"/usr/share/inputplumber/profiles/default.yaml",
 				"/usr/share/inputplumber/profiles/mouse_keyboard_wasd.yaml",
 				"/usr/share/inputplumber/profiles/test.yaml",
@@ -107,6 +108,6 @@
 		}
 	},
 	"source-name": "inputplumber",
-	"source-release": "10",
-	"source-version": "0.48.0"
+	"source-release": "11",
+	"source-version": "0.49.0"
 }
