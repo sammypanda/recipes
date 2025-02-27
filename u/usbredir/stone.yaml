@@ -15,8 +15,8 @@ description : |
 license     :
     - LGPL-2.1
 builddeps   :
-    - pkgconfig(libusb-1.0)
     - pkgconfig(glib-2.0)
+    - pkgconfig(libusb-1.0)
 setup       : |
     %meson
 build       : |
