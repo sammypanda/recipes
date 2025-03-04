@@ -1,0 +1,33 @@
+#
+# SPDX-FileCopyrightText: © 2020-2025 Serpent OS Developers
+#
+# SPDX-License-Identifier: MPL-2.0
+#
+name        : kf6-kcmutils
+version     : 6.11.0
+release     : 1
+upstreams   :
+    - https://download.kde.org/stable/frameworks/6.11/kcmutils-6.11.0.tar.xz : 64d2c5cd8165189c2d741bb543aab72b5bc8db5c540ca4e88c2f8d0f93e77990
+homepage    : https://community.kde.org/Frameworks
+license     :
+    - LGPL-2.0-only
+    - LGPL-2.0-or-later
+summary     : Utilities for interacting with KCModules
+description : |
+    Utilities for interacting with KCModules
+builddeps   :
+    # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
+    - cmake(ECM)
+    - cmake(KF6ConfigWidgets)
+    - cmake(KF6GuiAddons)
+    - cmake(KF6I18n)
+    - cmake(KF6KIO)
+    - cmake(KF6XmlGui)
+    - cmake(Qt6Qml)
+setup       : |
+    %cmake_kf6
+build       : |
+    %cmake_build
+install     : |
+    %cmake_install
+    %qml_cache_qt6
