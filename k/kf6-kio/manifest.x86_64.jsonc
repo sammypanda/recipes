@@ -418,6 +418,8 @@
 			"depends": [
 				"cmake(KF6Bookmarks)",
 				"cmake(KF6Completion)",
+				"cmake(KF6Config)",
+				"cmake(KF6CoreAddons)",
 				"cmake(KF6ItemViews)",
 				"cmake(KF6JobWidgets)",
 				"cmake(KF6Service)",
@@ -982,6 +984,6 @@
 		}
 	},
 	"source-name": "kf6-kio",
-	"source-release": "2",
+	"source-release": "3",
 	"source-version": "6.11.0"
 }

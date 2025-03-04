@@ -5,7 +5,7 @@
 #
 name        : kf6-kio
 version     : 6.11.0
-release     : 2
+release     : 3
 upstreams   :
     - https://download.kde.org/stable/frameworks/6.11/kio-6.11.0.tar.xz : fe511e43a5386f963c9afef93a21c0df44a2c24fcc417777e4d0569102477ff8
 homepage    : https://community.kde.org/Frameworks
@@ -64,6 +64,8 @@ packages    :
         rundeps:
             - cmake(KF6Bookmarks)
             - cmake(KF6Completion)
+            - cmake(KF6Config)
+            - cmake(KF6CoreAddons)
             - cmake(KF6ItemViews)
             - cmake(KF6JobWidgets)
             - cmake(KF6Service)
