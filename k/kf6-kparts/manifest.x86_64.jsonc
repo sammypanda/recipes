@@ -150,6 +150,8 @@
 				"cmake(KF6XmlGui)"
 			],
 			"depends": [
+				"cmake(KF6KIO)",
+				"cmake(KF6XmlGui)",
 				"kf6-kparts"
 			],
 			"files": [
@@ -205,6 +207,6 @@
 		}
 	},
 	"source-name": "kf6-kparts",
-	"source-release": "1",
+	"source-release": "2",
 	"source-version": "6.11.0"
 }
