@@ -1,0 +1,37 @@
+#
+# SPDX-FileCopyrightText: © 2020-2025 Serpent OS Developers
+#
+# SPDX-License-Identifier: MPL-2.0
+#
+name        : kf6-kdeclarative
+version     : 6.11.0
+release     : 1
+upstreams   :
+    - https://download.kde.org/stable/frameworks/6.11/kdeclarative-6.11.0.tar.xz : 6ae811367bcbc8190f8a5d2ef39a8e6c72871c41ec26e2a4b0c38324a3e8596b
+homepage    : https://community.kde.org/Frameworks
+license     :
+    - BSD-3-Clause
+    - GPL-2.0-only
+    - LGPL-2.0-or-later
+    - LGPL-2.1-only
+    - LGPL-2.1-or-later
+    - MIT
+summary     : Integration of QML and KDE work spaces
+description : |
+    Integration of QML and KDE work spaces
+builddeps   :
+    # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
+    - cmake(ECM)
+    - cmake(KF6Config)
+    - cmake(KF6GlobalAccel)
+    - cmake(KF6GuiAddons)
+    - cmake(KF6I18n)
+    - cmake(KF6WidgetsAddons)
+    - cmake(Qt6ShaderTools)
+setup       : |
+    %cmake_kf6
+build       : |
+    %cmake_build
+install     : |
+    %cmake_install
+    %qml_cache_qt6
