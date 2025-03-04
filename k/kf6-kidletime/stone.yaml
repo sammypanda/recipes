@@ -1,0 +1,33 @@
+#
+# SPDX-FileCopyrightText: © 2020-2025 Serpent OS Developers
+#
+# SPDX-License-Identifier: MPL-2.0
+#
+name        : kf6-kidletime
+version     : 6.11.0
+release     : 1
+upstreams   :
+    - https://download.kde.org/stable/frameworks/6.11/kidletime-6.11.0.tar.xz : 96efb0b533a37ddb2e1888dff7d4722c19c47d660f74d1b0a422eb95718f4882
+homepage    : https://community.kde.org/Frameworks
+license     :
+    - GPL-2.0-or-later
+    - LGPL-2.0-only
+    - MIT
+summary     : Reporting of idle time of user and system
+description : |
+    Reporting of idle time of user and system
+builddeps   :
+    # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
+    - cmake(ECM)
+    - cmake(PlasmaWaylandProtocols)
+    - cmake(Qt6WaylandClient)
+    - pkgconfig(wayland-protocols)
+    - pkgconfig(x11)
+    - pkgconfig(xext)
+    - pkgconfig(xscrnsaver)
+setup       : |
+    %cmake_kf6
+build       : |
+    %cmake_build
+install     : |
+    %cmake_install
