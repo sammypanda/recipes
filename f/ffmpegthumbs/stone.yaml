@@ -1,0 +1,27 @@
+#
+# SPDX-FileCopyrightText: © 2020-2025 Serpent OS Developers
+#
+# SPDX-License-Identifier: MPL-2.0
+#
+name        : ffmpegthumbs
+version     : 24.12.2
+release     : 1
+upstreams   :
+    - https://download.kde.org/stable/release-service/24.12.2/src/ffmpegthumbs-24.12.2.tar.xz : ebf7bfc2edcc11a223fb5bc8af2c58b1667a02af018ef6f898d383e11cba940e
+homepage    : https://kde.org/applications/multimedia/org.kde.ffmpegthumbs
+license     : GPL-2.0-or-later
+summary     : Video thumbnail generator
+description : |
+    FFMpegThumbs is a video thumbnail generator for KDE file managers.
+builddeps   :
+    # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
+    - cmake(ECM)
+    - cmake(KF6Config)
+    - cmake(KF6KIO)
+    - pkgconfig(libavcodec)
+setup       : |
+    %cmake_kf6 -DBUILD_WITH_QT6=ON
+build       : |
+    %cmake_build
+install     : |
+    %cmake_install
