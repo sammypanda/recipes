@@ -4,8 +4,8 @@
 # SPDX-License-Identifier: MPL-2.0
 #
 name        : kf6-ktextwidgets
-version     : 6.11
-release     : 1
+version     : 6.11.0
+release     : 2
 upstreams   :
     - https://download.kde.org/stable/frameworks/6.11/ktextwidgets-6.11.0.tar.xz : 0f043b8a60698ccdb88e3d6957b5f5c97cfe793ea2eea421fc467fffdf200697
 homepage    : https://community.kde.org/Frameworks
@@ -33,3 +33,7 @@ build       : |
     %cmake_build
 install     : |
     %cmake_install
+packages    :
+    - "%(name)-devel":
+        rundeps:
+            - cmake(KF6Sonnet)
