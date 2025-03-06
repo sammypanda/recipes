@@ -1,0 +1,6 @@
+releases:
+  id: 8763
+  rss: https://invent.kde.org/utilities/ark/-/tags?format=atom
+security:
+  - vendor: kde
+    product: ark

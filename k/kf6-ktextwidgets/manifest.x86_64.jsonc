@@ -153,6 +153,7 @@
 				"cmake(Qt6TextToSpeech)"
 			],
 			"depends": [
+				"cmake(KF6Sonnet)",
 				"kf6-ktextwidgets",
 				"soname(libKF6TextWidgets.so.6(x86_64))",
 				"soname(libQt6Core.so.6(x86_64))",
@@ -197,6 +198,6 @@
 		}
 	},
 	"source-name": "kf6-ktextwidgets",
-	"source-release": "1",
-	"source-version": "6.11"
+	"source-release": "2",
+	"source-version": "6.11.0"
 }

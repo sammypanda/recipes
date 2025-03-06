@@ -1,0 +1,47 @@
+#
+# SPDX-FileCopyrightText: © 2020-2025 Serpent OS Developers
+#
+# SPDX-License-Identifier: MPL-2.0
+#
+name        : ark
+version     : 24.12.2
+release     : 1
+upstreams   :
+    - https://download.kde.org/stable/release-service/24.12.2/src/ark-24.12.2.tar.xz : adad7aaf594fa55e5f79a60dd1a305174adbd8b6d582761aeb08bcbd4b413ca0
+homepage    : https://kde.org/applications/utilities/org.kde.ark
+license     : GPL-2.0-or-later
+summary     : A graphical file compression/decompression utility
+description : |
+    Ark is a graphical file compression/decompression utility with support for multiple formats, including tar, gzip, bzip2, rar and zip, as well as CD-ROM images.
+builddeps   :
+    # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
+    - cmake(ECM)
+    - cmake(KF6Config)
+    - cmake(KF6Crash)
+    - cmake(KF6DBusAddons)
+    - cmake(KF6DocTools)
+    - cmake(KF6FileMetaData)
+    - cmake(KF6I18n)
+    - cmake(KF6IconThemes)
+    - cmake(KF6KIO)
+    - cmake(KF6Parts)
+    - cmake(KF6Pty)
+    - cmake(KF6Service)
+    - cmake(KF6WidgetsAddons)
+    - cmake(KF6WindowSystem)
+    - cmake(libzip)
+    - pkgconfig(libarchive)
+    # Note that this builds a number of CLI wrapper plugins that request additional binary dependencies. The plugins are built regardless of whether
+    # or not these are found, and check for the appropriate binary at runtime. Leave them out of the builddeps and rundeps for now.
+rundeps     :
+    - qt6-wayland
+setup       : |
+    %cmake_kf6
+build       : |
+    %cmake_build
+install     : |
+    %cmake_install
+
+    # remove docs
+    rm -rf %(installroot)/%(datadir)/doc
+

@@ -1,0 +1,37 @@
+#
+# SPDX-FileCopyrightText: © 2020-2025 Serpent OS Developers
+#
+# SPDX-License-Identifier: MPL-2.0
+#
+name        : kf6-kfilemetadata
+version     : 6.11.0
+release     : 1
+upstreams   :
+    - https://download.kde.org/stable/frameworks/6.11/kfilemetadata-6.11.0.tar.xz : f9190969eaf66f9d27690cc3b85a3d19395ee3657582c9ae6c94c49a113312c7
+homepage    : https://community.kde.org/Frameworks
+license     :
+    - BSD-3-Clause
+    - LGPL-2.1-only
+    - LGPL-2.1-or-later
+summary     : Simple library for extracting the text and metadata
+description : |
+    Simple library for extracting the text and metadata
+builddeps   :
+    # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
+    - cmake(ECM)
+    - cmake(KF6Archive)
+    - cmake(KF6Codecs)
+    - cmake(KF6Config)
+    - cmake(KF6CoreAddons)
+    - cmake(KF6I18n)
+    - cmake(exiv2)
+    - pkgconfig(libattr)
+    - pkgconfig(libavcodec)
+    - pkgconfig(poppler-qt6)
+    # Todo: Build with taglib, epub, qmobipocket6, libappimage
+setup       : |
+    %cmake_kf6
+build       : |
+    %cmake_build
+install     : |
+    %cmake_install

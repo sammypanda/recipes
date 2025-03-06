@@ -1,0 +1,24 @@
+#
+# SPDX-FileCopyrightText: © 2020-2025 Serpent OS Developers
+#
+# SPDX-License-Identifier: MPL-2.0
+#
+name        : kf6-attica
+version     : 6.11.0
+release     : 1
+upstreams   :
+    - https://download.kde.org/stable/frameworks/6.11/attica-6.11.0.tar.xz : e7b7c03d7656a5970e02d61c3f8d2760b2c3da46d3f6464bfc254a733b263fb3
+homepage    : https://community.kde.org/Frameworks
+license     : LGPL-2.1-only
+summary     : Open Collaboration Service client library.
+description : |
+    Open Collaboration Service client library.
+builddeps   :
+    # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
+    - cmake(ECM)
+setup       : |
+    %cmake_kf6
+build       : |
+    %cmake_build
+install     : |
+    %cmake_install

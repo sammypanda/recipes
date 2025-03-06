@@ -1,0 +1,28 @@
+#
+# SPDX-FileCopyrightText: © 2020-2025 Serpent OS Developers
+#
+# SPDX-License-Identifier: MPL-2.0
+#
+name        : kf6-syndication
+version     : 6.11.0
+release     : 1
+upstreams   :
+    - https://download.kde.org/stable/frameworks/6.11/syndication-6.11.0.tar.xz : d889c553a5189339217e8d06b628595aba3c842b74693e7a8179606b13629e1d
+homepage    : https://community.kde.org/Frameworks
+license     :
+    - BSD-2-Clause
+    - GPL-2.0-or-later
+    - LGPL-2.0-or-later
+summary     : An RSS/Atom parser library
+description : |
+    syndication is a parser library for RSS and Atom feeds. syndication offers a unified, format-agnostic view on the parsed feed, so that the using application does not need to distinguish between feed formats.
+builddeps   :
+    # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
+    - cmake(ECM)
+    - cmake(KF6Codecs)
+setup       : |
+    %cmake_kf6
+build       : |
+    %cmake_build
+install     : |
+    %cmake_install

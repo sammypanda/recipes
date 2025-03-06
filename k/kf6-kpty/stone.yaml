@@ -1,0 +1,32 @@
+#
+# SPDX-FileCopyrightText: © 2020-2025 Serpent OS Developers
+#
+# SPDX-License-Identifier: MPL-2.0
+#
+name        : kf6-kpty
+version     : 6.11.0
+release     : 1
+upstreams   :
+    - https://download.kde.org/stable/frameworks/6.11/kpty-6.11.0.tar.xz : f1d985bf0a14061a764c7c01bcb6cf284a59ad82de13e72cfd1bd268819eebc2
+homepage    : https://community.kde.org/Frameworks
+license     :
+    - BSD-3-Clause
+    - GPL-2.0-or-later
+    - LGPL-2.0-or-later
+summary     : Interfacing with pseudo terminal devices
+description : |
+    Interfacing with pseudo terminal devices
+builddeps   :
+    # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
+    - cmake(ECM)
+    - cmake(KF6CoreAddons)
+    - cmake(KF6I18n)
+    - libutempter-devel
+rundeps     :
+    - libutempter
+setup       : |
+    %cmake_kf6
+build       : |
+    %cmake_build
+install     : |
+    %cmake_install

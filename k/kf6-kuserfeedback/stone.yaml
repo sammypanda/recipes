@@ -1,0 +1,29 @@
+#
+# SPDX-FileCopyrightText: © 2020-2025 Serpent OS Developers
+#
+# SPDX-License-Identifier: MPL-2.0
+#
+name        : kf6-kuserfeedback
+version     : 6.11.0
+release     : 1
+upstreams   :
+    - https://download.kde.org/stable/frameworks/6.11/kuserfeedback-6.11.0.tar.xz : ac516b7b8f9cd0891664f8b580d0a5a5c494cf6b5dbfddd87b6f6256548b7910
+homepage    : https://community.kde.org/Frameworks
+license     : MIT
+summary     : Framework for collecting user feedback for applications via telemetry and surveys
+description : |
+    Framework for collecting user feedback for applications via telemetry and surveys
+builddeps   :
+    - binary(bison)
+    - binary(flex)
+    - binary(php)
+    # Temporary, boulder doesn't handle build ordering resolution correctly when builddeps are added by macros, so add ECM manually
+    - cmake(ECM)
+    - cmake(Qt6Qml)
+setup       : |
+    %cmake_kf6 -DENABLE_CONSOLE=ON \
+               -DENABLE_CLI=ON
+build       : |
+    %cmake_build
+install     : |
+    %cmake_install
