@@ -1,4 +1,4 @@
-From 49d143b03f97604c5e8f196c31233eaf7e296f5b Mon Sep 17 00:00:00 2001
+From 2f40bf4d12cd5ccca1e4d6b822ebd89e1ed7be35 Mon Sep 17 00:00:00 2001
 From: Luke Jones <luke@ljones.dev>
 Date: Mon, 10 Feb 2025 17:15:01 +1300
 Subject: [PATCH 18/28] hid-asus-ally: mcu_version attribute
@@ -54,5 +54,5 @@ index d41e78c196a0..3e6250a7bd48 100644
  		hid_warn(hdev,
  			"The MCU firmware version must be %d or greater to avoid issues with suspend.\n",
 -- 
-2.48.1
+2.47.1
 

@@ -1,4 +1,4 @@
-From 22d6bb839c67b9325bcb1104e1e01935c948164b Mon Sep 17 00:00:00 2001
+From 564a9880c9cb658cadf80360b9841acc46e9a834 Mon Sep 17 00:00:00 2001
 From: "Luke D. Jones" <luke@ljones.dev>
 Date: Thu, 10 Oct 2024 11:15:36 +1300
 Subject: [PATCH 19/28] hid-asus-ally: add calibrations (wip)
@@ -143,5 +143,5 @@ index 3e6250a7bd48..5c12d8fd1c8e 100644
  	ally_cfg->vibration_intensity[0] = 0x64;
  	ally_cfg->vibration_intensity[1] = 0x64;
 -- 
-2.48.1
+2.47.1
 

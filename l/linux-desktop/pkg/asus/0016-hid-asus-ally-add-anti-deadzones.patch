@@ -1,4 +1,4 @@
-From 95ad085366e88df9f9e52214ec65ba6bced4c950 Mon Sep 17 00:00:00 2001
+From ac5967a805c0ef1bb5050c5d20765e0071d0f9c3 Mon Sep 17 00:00:00 2001
 From: "Luke D. Jones" <luke@ljones.dev>
 Date: Sun, 6 Oct 2024 19:49:24 +1300
 Subject: [PATCH 16/28] hid-asus-ally: add anti-deadzones
@@ -180,5 +180,5 @@ index e0be54b4debb..70ef69ac476b 100644
  
  /* Values correspond to the actual HID byte value required */
 -- 
-2.48.1
+2.47.1
 

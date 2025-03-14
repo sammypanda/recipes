@@ -1,4 +1,4 @@
-From 46c6cba3d44024f5c3cc0323d8f285eed00836c6 Mon Sep 17 00:00:00 2001
+From b2f3f6ddb5772655e510e8ea6c82c26dfaf7a7d9 Mon Sep 17 00:00:00 2001
 From: "Luke D. Jones" <luke@ljones.dev>
 Date: Sun, 1 Sep 2024 14:30:37 +1200
 Subject: [PATCH 05/28] platform/x86: asus-wmi: Refactor Ally suspend/resume
@@ -297,5 +297,5 @@ index 783e2a336861..a32cb8865b2f 100644
  					   u32 *retval)
  {
 -- 
-2.48.1
+2.47.1
 

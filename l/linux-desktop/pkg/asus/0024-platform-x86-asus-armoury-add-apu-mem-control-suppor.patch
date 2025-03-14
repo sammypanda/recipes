@@ -1,4 +1,4 @@
-From 681e933c3c915d66302f888eb3cfccdd410de754 Mon Sep 17 00:00:00 2001
+From 76f2ec7b81b90b5d9151621cd9b0f368fd8aece9 Mon Sep 17 00:00:00 2001
 From: "Luke D. Jones" <luke@ljones.dev>
 Date: Sun, 2 Jun 2024 14:44:31 +1200
 Subject: [PATCH 24/28] platform/x86: asus-armoury: add apu-mem control support
@@ -162,5 +162,5 @@ index 62a9adb1af2f..f3494a9efea7 100644
  #define ASUS_WMI_DEVID_GPU_MUX		0x00090016
  #define ASUS_WMI_DEVID_GPU_MUX_VIVO	0x00090026
 -- 
-2.48.1
+2.47.1
 

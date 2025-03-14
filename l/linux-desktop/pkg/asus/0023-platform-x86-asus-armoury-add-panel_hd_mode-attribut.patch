@@ -1,4 +1,4 @@
-From 7a53b940f60634f73ae714f13fb349dadef66da7 Mon Sep 17 00:00:00 2001
+From 14c985edce94070c1f5d820f7a76aeb47b6ae627 Mon Sep 17 00:00:00 2001
 From: "Luke D. Jones" <luke@ljones.dev>
 Date: Thu, 19 Sep 2024 17:23:35 +1200
 Subject: [PATCH 23/28] platform/x86: asus-armoury: add panel_hd_mode attribute
@@ -57,5 +57,5 @@ index 4574e30c53fc..62a9adb1af2f 100644
  #define ASUS_WMI_DEVID_CAMERA		0x00060013
  #define ASUS_WMI_DEVID_LID_FLIP		0x00060062
 -- 
-2.48.1
+2.47.1
 

@@ -1,4 +1,4 @@
-From 11a2d9e80a28639e5b38f3a3e2437b08f3942239 Mon Sep 17 00:00:00 2001
+From 41e0f624135bbf17d33212108bd22b302f89e975 Mon Sep 17 00:00:00 2001
 From: "Luke D. Jones" <luke@ljones.dev>
 Date: Sat, 5 Oct 2024 15:40:09 +1300
 Subject: [PATCH 12/28] hid-asus-ally: Turbo settings for buttons
@@ -195,5 +195,5 @@ index a0b0acd65bfd..4e1eccbd99ad 100644
 +		.attrs = _fname##_turbo_attrs,                                    \
 +	}
 -- 
-2.48.1
+2.47.1
 
