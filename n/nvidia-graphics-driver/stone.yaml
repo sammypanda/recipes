@@ -4,16 +4,16 @@
 # SPDX-License-Identifier: MPL-2.0
 #
 name        : nvidia-graphics-driver
-version     : 570.86.16
-release     : 19
+version     : 570.124.04
+release     : 20
 homepage    : https://www.nvidia.com/
 upstreams   :
-    - https://us.download.nvidia.com/XFree86/Linux-x86_64/570.86.16/NVIDIA-Linux-x86_64-570.86.16.run:
-        hash: 4563ea4bb654247f491005a57c72c676aacd95abe1691d71332cecf25261cbd5
+    - https://us.download.nvidia.com/XFree86/Linux-x86_64/570.124.04/NVIDIA-Linux-x86_64-570.124.04.run:
+        hash: 1b786a4b7122d7c4216c58ae4007688a4f778c196c148d919163815ee10d53c4
         unpack: false
         rename: NVIDIA.run
-    - https://download.nvidia.com/XFree86/nvidia-persistenced/nvidia-persistenced-570.86.16.tar.bz2:
-        hash: 3abb4188fd87cfb375df9a0161b8f24f962dcb0ec83d4a2bae51559838063350
+    - https://download.nvidia.com/XFree86/nvidia-persistenced/nvidia-persistenced-570.124.04.tar.bz2:
+        hash: c5c005e1866d023fdd120aa2d10b38b2406cfb06b7f7b03f50b5ba7743d56c96
         rename: nvidia-persistenced.tar.bz2
         extract: false
 summary     : The proprietary NVIDIA graphics driver
