@@ -1,4 +1,4 @@
-From 5ceee63aa6c8248629971be6be2d6d1f21f1077e Mon Sep 17 00:00:00 2001
+From e0b574c9aae32a9d246c3c481549d4f55c77fc26 Mon Sep 17 00:00:00 2001
 From: Luke Jones <luke@ljones.dev>
 Date: Wed, 5 Feb 2025 12:37:47 +1300
 Subject: [PATCH 28/28] backport: fix fw_attr use

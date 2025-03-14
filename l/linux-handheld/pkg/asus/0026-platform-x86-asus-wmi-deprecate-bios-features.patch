@@ -1,4 +1,4 @@
-From dc4e0246539221d6e027d2c76cd596d420854a7c Mon Sep 17 00:00:00 2001
+From 746908718f9d65a76700c318e055d9cd5b422e6d Mon Sep 17 00:00:00 2001
 From: "Luke D. Jones" <luke@ljones.dev>
 Date: Mon, 3 Jun 2024 12:04:41 +1200
 Subject: [PATCH 26/28] platform/x86: asus-wmi: deprecate bios features

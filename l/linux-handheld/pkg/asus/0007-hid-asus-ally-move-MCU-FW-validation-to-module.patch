@@ -1,4 +1,4 @@
-From 6ef4589173fb3ac905db41a19410d177c3c929df Mon Sep 17 00:00:00 2001
+From 8055438b166441c7acb2bd0d402907f273f7f825 Mon Sep 17 00:00:00 2001
 From: Luke Jones <luke@ljones.dev>
 Date: Mon, 24 Feb 2025 19:40:04 +1300
 Subject: [PATCH 07/28] hid-asus-ally: move MCU FW validation to module

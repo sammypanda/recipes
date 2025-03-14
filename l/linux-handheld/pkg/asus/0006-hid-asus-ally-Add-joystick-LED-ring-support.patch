@@ -1,4 +1,4 @@
-From 5d91bf6a14f14d77c9efdd2c9aa179b6dca7deb6 Mon Sep 17 00:00:00 2001
+From def69ab1adf3d2e42861dfb71af4f891f52b4786 Mon Sep 17 00:00:00 2001
 From: "Luke D. Jones" <luke@ljones.dev>
 Date: Mon, 26 Aug 2024 12:49:35 +1200
 Subject: [PATCH 06/28] hid-asus-ally: Add joystick LED ring support

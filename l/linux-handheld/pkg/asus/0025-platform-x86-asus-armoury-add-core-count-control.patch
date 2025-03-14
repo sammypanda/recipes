@@ -1,4 +1,4 @@
-From 59df8cfa5093e54c8d830266ee20e969c72dae81 Mon Sep 17 00:00:00 2001
+From ae4c3ed421c2fdea02dd0c31eb45b4fea07b7a7e Mon Sep 17 00:00:00 2001
 From: "Luke D. Jones" <luke@ljones.dev>
 Date: Wed, 18 Sep 2024 21:19:12 +1200
 Subject: [PATCH 25/28] platform/x86: asus-armoury: add core count control

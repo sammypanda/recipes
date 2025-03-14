@@ -1,4 +1,4 @@
-From 4ddc3fe145dd6311ae62826bd9c077ce01388798 Mon Sep 17 00:00:00 2001
+From f3c8c586263b50a3a8520497677ef2004fc0b74d Mon Sep 17 00:00:00 2001
 From: "Luke D. Jones" <luke@ljones.dev>
 Date: Fri, 7 Jun 2024 15:58:01 +1200
 Subject: [PATCH 03/28] hid: add VID/PID for ASUS ROG RAIKIRI PRO

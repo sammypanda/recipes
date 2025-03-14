@@ -1,4 +1,4 @@
-From a68446a413a996133ce24071da5fe1bfc66724dd Mon Sep 17 00:00:00 2001
+From d61fe2d754b2a929ac3a389feb0629616009ef51 Mon Sep 17 00:00:00 2001
 From: "Luke D. Jones" <luke@ljones.dev>
 Date: Wed, 2 Oct 2024 23:32:46 +1300
 Subject: [PATCH 08/28] hid-asus-ally: initial Ally-X gamepad bringup
