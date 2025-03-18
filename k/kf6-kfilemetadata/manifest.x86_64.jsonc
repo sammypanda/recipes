@@ -16,6 +16,7 @@
 				"pkgconfig(poppler-qt6)"
 			],
 			"depends": [
+				"interpreter(/usr/lib/ld-linux-x86-64.so.2(x86_64))",
 				"soname(libKF6Archive.so.6(x86_64))",
 				"soname(libKF6Codecs.so.6(x86_64))",
 				"soname(libKF6CoreAddons.so.6(x86_64))",
@@ -33,8 +34,9 @@
 				"soname(libunwind.so.1(x86_64))"
 			],
 			"files": [
+				"/usr/bin/kfilemetadata_dump6",
 				"/usr/lib/libKF6FileMetaData.so.3",
-				"/usr/lib/libKF6FileMetaData.so.6.11.0",
+				"/usr/lib/libKF6FileMetaData.so.6.12.0",
 				"/usr/lib/qt6/plugins/kf6/kfilemetadata/kfilemetadata_exiv2extractor.so",
 				"/usr/lib/qt6/plugins/kf6/kfilemetadata/kfilemetadata_fb2extractor.so",
 				"/usr/lib/qt6/plugins/kf6/kfilemetadata/kfilemetadata_ffmpegextractor.so",
@@ -110,6 +112,7 @@
 			],
 			"name": "kf6-kfilemetadata",
 			"provides": [
+				"binary(kfilemetadata_dump6)",
 				"soname(libKF6FileMetaData.so.3(x86_64))",
 				"soname(qt6/plugins/kf6/kfilemetadata/kfilemetadata_exiv2extractor.so(x86_64))",
 				"soname(qt6/plugins/kf6/kfilemetadata/kfilemetadata_fb2extractor.so(x86_64))",
@@ -193,6 +196,6 @@
 		}
 	},
 	"source-name": "kf6-kfilemetadata",
-	"source-release": "1",
-	"source-version": "6.11.0"
+	"source-release": "2",
+	"source-version": "6.12.0"
 }
