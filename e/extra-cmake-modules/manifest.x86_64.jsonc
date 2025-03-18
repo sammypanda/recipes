@@ -144,6 +144,7 @@
 				"/usr/share/ECM/toolchain/deployment-file-qt6.json.in",
 				"/usr/share/ECM/toolchain/deployment-file-qt6.json.in.license",
 				"/usr/share/ECM/toolchain/deployment-file.json.in",
+				"/usr/share/ECM/toolchain/ecm-version.gradle.in",
 				"/usr/share/ECM/toolchain/generate-fastlane-metadata.py",
 				"/usr/share/ECM/toolchain/hasMainSymbol.cmake",
 				"/usr/share/ECM/toolchain/specifydependencies.cmake"
@@ -155,6 +156,6 @@
 		}
 	},
 	"source-name": "extra-cmake-modules",
-	"source-release": "2",
-	"source-version": "6.11"
+	"source-release": "3",
+	"source-version": "6.12.0"
 }
