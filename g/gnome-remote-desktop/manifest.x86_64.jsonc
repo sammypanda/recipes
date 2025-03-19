@@ -57,7 +57,6 @@
 				"soname(libtss2-esys.so.0(x86_64))",
 				"soname(libtss2-mu.so.0(x86_64))",
 				"soname(libtss2-rc.so.0(x86_64))",
-				"soname(libtss2-tctildr.so.0(x86_64))",
 				"soname(libwinpr3.so.3(x86_64))",
 				"soname(libxkbcommon.so.0(x86_64))"
 			],
@@ -92,6 +91,6 @@
 		}
 	},
 	"source-name": "gnome-remote-desktop",
-	"source-release": "5",
-	"source-version": "47.2"
+	"source-release": "6",
+	"source-version": "47.3"
 }
