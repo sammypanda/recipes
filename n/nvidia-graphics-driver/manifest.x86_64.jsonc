@@ -353,6 +353,6 @@
 		}
 	},
 	"source-name": "nvidia-graphics-driver",
-	"source-release": "21",
+	"source-release": "22",
 	"source-version": "570.133.07"
 }
