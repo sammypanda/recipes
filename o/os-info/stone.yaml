@@ -1,0 +1,20 @@
+#
+# SPDX-FileCopyrightText: © 2025 AerynOS Developers
+#
+# SPDX-License-Identifier: MPL-2.0
+#
+name        : os-info
+version     : "0.25.1"
+release     : 1
+summary     : Operating System Information
+license     : MPL-2.0
+homepage    : https://aerynos.com/
+description : |
+    Operating System Information
+
+    This package provides information about the operating system.
+rundeps     :
+    - layout
+install     : |
+    %install_dir %(installroot)%(libdir)/os-info
+    %install_file %(pkgdir)/os-info.json %(installroot)%(libdir)/os-info/os-info.json

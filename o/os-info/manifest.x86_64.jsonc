@@ -1,0 +1,18 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"os-info": {
+			"depends": [
+				"layout"
+			],
+			"files": [
+				"/usr/lib/os-info/os-info.json"
+			],
+			"name": "os-info"
+		}
+	},
+	"source-name": "os-info",
+	"source-release": "1",
+	"source-version": "0.25.1"
+}
