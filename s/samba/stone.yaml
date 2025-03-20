@@ -5,7 +5,7 @@
 #
 name        : samba
 version     : 4.19.5
-release     : 9
+release     : 10
 homepage    : https://www.samba.org/
 upstreams   :
     - https://download.samba.org/pub/samba/stable/samba-4.19.5.tar.gz : 0e2405b4cec29d0459621f4340a1a74af771ec7cffedff43250cad7f1f87605e
@@ -56,6 +56,10 @@ builddeps   :
     - pkgconfig(tdb)
     - pkgconfig(tevent)
     - perl-parse-yapp
+packages    :
+    - "%(name)":
+        paths:
+            - /usr/lib/lib*.so*
 setup       : |
     %configure \
         --bundled-libraries=!cmocka,!tdb,!talloc,!pytalloc-util,!tevent,!popt,!ldb,!pyldb-util \
