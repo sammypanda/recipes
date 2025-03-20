@@ -7,12 +7,13 @@
 				"layout"
 			],
 			"files": [
-				"/usr/lib/os-info/os-info.json"
+				"/usr/lib/os-info.json",
+				"/usr/lib/os-info/AerynOS.json"
 			],
 			"name": "os-info"
 		}
 	},
 	"source-name": "os-info",
-	"source-release": "1",
+	"source-release": "2",
 	"source-version": "0.25.1"
 }
