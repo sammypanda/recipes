@@ -4,14 +4,14 @@
 # SPDX-License-Identifier: MPL-2.0
 #
 name        : discord
-version     : 0.0.87
-release     : 13
+version     : 0.0.88
+release     : 14
 summary     : Group chat, video, and voice calling app
 license     : Distributable
 homepage    : https://discord.com/
 upstreams   :
-    - https://stable.dl2.discordapp.net/apps/linux/0.0.87/discord-0.0.87.deb:
-        hash: 89b8d57ed399cfbd7f1ade4a1b61761b24d089040680f4de07236ecb01b18443
+    - https://stable.dl2.discordapp.net/apps/linux/0.0.88/discord-0.0.88.deb:
+        hash: 5777c4c873f13e00ebe6a74c57bc3abac394b2b641dd72fee5f98f63ad102ccc
         unpack: false
         rename: discord.deb
 description : |
@@ -22,13 +22,30 @@ builddeps   :
     - binary(tar)
 rundeps     :
     - binary(xdg-open)
+    - binary(python3)
     - soname(libXss.so.1(x86_64))
     - soname(libatomic.so.1(x86_64))
 strip       : false
 setup       : |
     ar xf %(sourcedir)/discord.deb
     tar xf data.tar.*
-    rm -rf usr/share/lintian
 install     : |
-    %install_dir %(installroot)/usr
-    cp -R usr/* %(installroot)/usr/.
+    _discord_root=%(libdir)/discord
+    _discord_install=%(installroot)/$_discord_root
+
+    %install_dir $_discord_install
+    cp -R usr/share/discord/* $_discord_install
+
+    # Wrapper binary and script to disable the update check
+    %install_exe %(pkgdir)/discord.sh.in %(installroot)/%(bindir)/discord
+    sed -i "s|@@DISCORD_ROOT@@|$_discord_root|g" %(installroot)/%(bindir)/discord
+    %install_exe %(pkgdir)/disable-breaking-updates.py -t $_discord_install/
+
+    # Desktop file, icon
+    %install_file %(pkgdir)/discord.desktop %(installroot)/%(datadir)/applications/discord.desktop
+    rm -v $_discord_install/discord.desktop
+    %install_dir %(installroot)/%(datadir)/icons/hicolor/256x256/apps
+    ln -srv $_discord_install/discord.png %(installroot)/%(datadir)/icons/hicolor/256x256/apps/discord.png
+
+    # Useless to us
+    rm -v $_discord_install/postinst.sh
