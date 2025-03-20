@@ -6,7 +6,7 @@
 #
 name        : gnome-desktop-defaults
 version     : "0.1.0"
-release     : 1
+release     : 2
 license     : MPL-2.0
 homepage    : https://aerynos.com
 summary     : Default settings and dependencies for GNOME desktop
@@ -19,8 +19,8 @@ rundeps     :
     - gnome-browser-connector
     - gnome-shell-extension-appindicator
     - gnome-shell-extension-tilingshell
+    - morewaita-icon-theme
     - os-artwork
-    - papirus-icon-theme
 install     : |
     %install_dir %(installroot)%(datadir)/glib-2.0/schemas
     %install_file %(pkgdir)/10_*.gschema.override %(installroot)%(datadir)/glib-2.0/schemas/.
