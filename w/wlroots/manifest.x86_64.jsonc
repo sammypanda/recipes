@@ -20,10 +20,13 @@
 				"pkgconfig(vulkan)",
 				"pkgconfig(wayland-protocols)",
 				"pkgconfig(wayland-server)",
+				"pkgconfig(xcb-icccm)",
 				"pkgconfig(xcb-renderutil)",
-				"pkgconfig(xkbcommon)"
+				"pkgconfig(xkbcommon)",
+				"pkgconfig(xwayland)"
 			],
 			"depends": [
+				"binary(xwayland)",
 				"soname(libEGL.so.1(x86_64))",
 				"soname(libGLESv2.so.2(x86_64))",
 				"soname(libc.so.6(x86_64))",
@@ -37,10 +40,13 @@
 				"soname(libvulkan.so.1(x86_64))",
 				"soname(libwayland-client.so.0(x86_64))",
 				"soname(libwayland-server.so.0(x86_64))",
+				"soname(libxcb-composite.so.0(x86_64))",
 				"soname(libxcb-dri3.so.0(x86_64))",
+				"soname(libxcb-icccm.so.4(x86_64))",
 				"soname(libxcb-present.so.0(x86_64))",
 				"soname(libxcb-render-util.so.0(x86_64))",
 				"soname(libxcb-render.so.0(x86_64))",
+				"soname(libxcb-res.so.0(x86_64))",
 				"soname(libxcb-shm.so.0(x86_64))",
 				"soname(libxcb-xfixes.so.0(x86_64))",
 				"soname(libxcb-xinput.so.0(x86_64))",
@@ -73,8 +79,10 @@
 				"pkgconfig(vulkan)",
 				"pkgconfig(wayland-protocols)",
 				"pkgconfig(wayland-server)",
+				"pkgconfig(xcb-icccm)",
 				"pkgconfig(xcb-renderutil)",
-				"pkgconfig(xkbcommon)"
+				"pkgconfig(xkbcommon)",
+				"pkgconfig(xwayland)"
 			],
 			"depends": [
 				"pkgconfig(egl)",
@@ -89,14 +97,18 @@
 				"pkgconfig(wayland-client)",
 				"pkgconfig(wayland-server)",
 				"pkgconfig(xcb)",
+				"pkgconfig(xcb-composite)",
 				"pkgconfig(xcb-dri3)",
+				"pkgconfig(xcb-icccm)",
 				"pkgconfig(xcb-present)",
 				"pkgconfig(xcb-render)",
 				"pkgconfig(xcb-renderutil)",
+				"pkgconfig(xcb-res)",
 				"pkgconfig(xcb-shm)",
 				"pkgconfig(xcb-xfixes)",
 				"pkgconfig(xcb-xinput)",
-				"pkgconfig(xkbcommon)"
+				"pkgconfig(xkbcommon)",
+				"wlroots"
 			],
 			"files": [
 				"/usr/include/wlr/backend.h",
@@ -196,6 +208,7 @@
 				"/usr/include/wlr/util/region.h",
 				"/usr/include/wlr/version.h",
 				"/usr/include/wlr/xcursor.h",
+				"/usr/include/wlr/xwayland.h",
 				"/usr/include/wlr/xwayland/server.h",
 				"/usr/include/wlr/xwayland/xwayland.h",
 				"/usr/lib/libwlroots.so",
@@ -208,6 +221,6 @@
 		}
 	},
 	"source-name": "wlroots",
-	"source-release": "1",
+	"source-release": "2",
 	"source-version": "0.16.2"
 }
