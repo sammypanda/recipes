@@ -5,7 +5,7 @@
 #
 name        : gamescope-plus
 version     : 3.15.13.plus1
-release     : 1
+release     : 2
 homepage    : https://github.com/ChimeraOS/gamescope
 upstreams   :
     - git|https://github.com/ChimeraOS/gamescope.git : bfdccf935a35bde65ebcbb345315b46e9ac5337b
