@@ -5,7 +5,7 @@
 #
 name        : gnome-software
 version     : 48.0
-release     : 13
+release     : 14
 homepage    : https://apps.gnome.org/Software/
 upstreams   :
     - https://download.gnome.org/sources/gnome-software/48/gnome-software-48.0.tar.xz : e607af554e838fd6d07c1631f634b20e8bd4e6adf16fc7535c4520874af544f7
@@ -52,3 +52,6 @@ install     : |
     %install_dir %(installroot)/usr/share/xdg/
     mv %(installroot)/etc/xdg/* %(installroot)/usr/share/xdg/
     rm -frv %(installroot)/etc
+
+    # partial bug situation in boulder
+    ln %(installroot)%(libdir)/gnome-software/libgnomesoftware.so.22 %(installroot)%(libdir)/libgnomesoftware.so.22

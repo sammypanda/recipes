@@ -33,7 +33,6 @@
 				"soname(libgio-2.0.so.0(x86_64))",
 				"soname(libglib-2.0.so.0(x86_64))",
 				"soname(libgmodule-2.0.so.0(x86_64))",
-				"soname(libgnomesoftware.so.22(x86_64))",
 				"soname(libgobject-2.0.so.0(x86_64))",
 				"soname(libgtk-4.so.1(x86_64))",
 				"soname(libgudev-1.0.so.0(x86_64))",
@@ -66,6 +65,7 @@
 				"/usr/lib/gnome-software/plugins-22/libgs_plugin_provenance-license.so",
 				"/usr/lib/gnome-software/plugins-22/libgs_plugin_provenance.so",
 				"/usr/lib/gnome-software/plugins-22/libgs_plugin_repos.so",
+				"/usr/lib/libgnomesoftware.so.22",
 				"/usr/share/applications/gnome-software-local-file-flatpak.desktop",
 				"/usr/share/applications/org.gnome.Software.desktop",
 				"/usr/share/bash-completion/completions/gnome-software",
@@ -369,7 +369,8 @@
 				"soname(gnome-software/plugins-22/libgs_plugin_os-release.so(x86_64))",
 				"soname(gnome-software/plugins-22/libgs_plugin_provenance-license.so(x86_64))",
 				"soname(gnome-software/plugins-22/libgs_plugin_provenance.so(x86_64))",
-				"soname(gnome-software/plugins-22/libgs_plugin_repos.so(x86_64))"
+				"soname(gnome-software/plugins-22/libgs_plugin_repos.so(x86_64))",
+				"soname(libgnomesoftware.so.22(x86_64))"
 			]
 		},
 		"gnome-software-devel": {
@@ -463,6 +464,6 @@
 		}
 	},
 	"source-name": "gnome-software",
-	"source-release": "13",
+	"source-release": "14",
 	"source-version": "48.0"
 }
