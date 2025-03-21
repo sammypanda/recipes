@@ -4,8 +4,8 @@
 # SPDX-License-Identifier: MPL-2.0
 #
 name        : ffmpeg
-version     : 7.1
-release     : 2
+version     : '7.1'
+release     : 3
 homepage    : https://ffmpeg.org/releases
 upstreams   :
     - https://ffmpeg.org/releases/ffmpeg-7.1.tar.xz : 40973d44970dbc83ef302b0609f2e74982be2d85916dd2ee7472d30678a7abe6
