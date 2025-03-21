@@ -5,7 +5,7 @@
 #
 name        : godot
 version     : 4.4
-release     : 2
+release     : 3
 homepage    : https://godotengine.org
 upstreams   :
     - https://github.com/godotengine/godot/archive/refs/tags/4.4-stable.tar.gz: 23b36f704a2fe3bfe5fb2d04db40f2d635435cde079c169836a6f89ee7ca1901
