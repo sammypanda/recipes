@@ -5,7 +5,7 @@
 		"mangohud": {
 			"build-depends": [
 				"binary(g++)",
-				"cmake(glslang)",
+				"binary(glslang)",
 				"pkgconfig(cmocka)",
 				"pkgconfig(dbus-1)",
 				"pkgconfig(glew)",
@@ -59,6 +59,6 @@
 		}
 	},
 	"source-name": "mangohud",
-	"source-release": "2",
+	"source-release": "3",
 	"source-version": "0.8.1"
 }
