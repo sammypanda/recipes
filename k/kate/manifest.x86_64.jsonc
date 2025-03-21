@@ -65,7 +65,7 @@
 			"files": [
 				"/usr/bin/kate",
 				"/usr/bin/kwrite",
-				"/usr/lib/libkateprivate.so.24.12.2",
+				"/usr/lib/libkateprivate.so.24.12.3",
 				"/usr/lib/qt6/plugins/kf6/ktexteditor/cmaketoolsplugin.so",
 				"/usr/lib/qt6/plugins/kf6/ktexteditor/compilerexplorer.so",
 				"/usr/lib/qt6/plugins/kf6/ktexteditor/eslintplugin.so",
@@ -140,6 +140,7 @@
 				"/usr/share/locale/af/LC_MESSAGES/kate.mo",
 				"/usr/share/locale/af/LC_MESSAGES/katetextfilter.mo",
 				"/usr/share/locale/af/LC_MESSAGES/katexmltools.mo",
+				"/usr/share/locale/ar/LC_MESSAGES/formatplugin.mo",
 				"/usr/share/locale/ar/LC_MESSAGES/kate-ctags-plugin.mo",
 				"/usr/share/locale/ar/LC_MESSAGES/kate-replicode-plugin.mo",
 				"/usr/share/locale/ar/LC_MESSAGES/kate.mo",
@@ -147,9 +148,13 @@
 				"/usr/share/locale/ar/LC_MESSAGES/katebuild-plugin.mo",
 				"/usr/share/locale/ar/LC_MESSAGES/katecloseexceptplugin.mo",
 				"/usr/share/locale/ar/LC_MESSAGES/katecolorpickerplugin.mo",
+				"/usr/share/locale/ar/LC_MESSAGES/katecompilerexplorer.mo",
+				"/usr/share/locale/ar/LC_MESSAGES/kateexternaltoolsplugin.mo",
 				"/usr/share/locale/ar/LC_MESSAGES/katefilebrowserplugin.mo",
 				"/usr/share/locale/ar/LC_MESSAGES/katefiletree.mo",
 				"/usr/share/locale/ar/LC_MESSAGES/kategdbplugin.mo",
+				"/usr/share/locale/ar/LC_MESSAGES/kategitblameplugin.mo",
+				"/usr/share/locale/ar/LC_MESSAGES/katekeyboardmacros.mo",
 				"/usr/share/locale/ar/LC_MESSAGES/katekonsoleplugin.mo",
 				"/usr/share/locale/ar/LC_MESSAGES/kateproject.mo",
 				"/usr/share/locale/ar/LC_MESSAGES/katesearch.mo",
@@ -160,6 +165,9 @@
 				"/usr/share/locale/ar/LC_MESSAGES/katexmlcheck.mo",
 				"/usr/share/locale/ar/LC_MESSAGES/katexmltools.mo",
 				"/usr/share/locale/ar/LC_MESSAGES/ktexteditorpreviewplugin.mo",
+				"/usr/share/locale/ar/LC_MESSAGES/lspclient.mo",
+				"/usr/share/locale/ar/LC_MESSAGES/rainbowparens.mo",
+				"/usr/share/locale/ar/LC_MESSAGES/rbqlplugin.mo",
 				"/usr/share/locale/ar/LC_MESSAGES/tabswitcherplugin.mo",
 				"/usr/share/locale/ast/LC_MESSAGES/formatplugin.mo",
 				"/usr/share/locale/ast/LC_MESSAGES/kate-ctags-plugin.mo",
@@ -1299,6 +1307,8 @@
 				"/usr/share/locale/pt_BR/LC_MESSAGES/katexmltools.mo",
 				"/usr/share/locale/pt_BR/LC_MESSAGES/ktexteditorpreviewplugin.mo",
 				"/usr/share/locale/pt_BR/LC_MESSAGES/lspclient.mo",
+				"/usr/share/locale/pt_BR/LC_MESSAGES/rainbowparens.mo",
+				"/usr/share/locale/pt_BR/LC_MESSAGES/rbqlplugin.mo",
 				"/usr/share/locale/pt_BR/LC_MESSAGES/tabswitcherplugin.mo",
 				"/usr/share/locale/ro/LC_MESSAGES/kate-ctags-plugin.mo",
 				"/usr/share/locale/ro/LC_MESSAGES/kate.mo",
@@ -1768,7 +1778,7 @@
 			"provides": [
 				"binary(kate)",
 				"binary(kwrite)",
-				"soname(libkateprivate.so.24.12.2(x86_64))",
+				"soname(libkateprivate.so.24.12.3(x86_64))",
 				"soname(qt6/plugins/kf6/ktexteditor/cmaketoolsplugin.so(x86_64))",
 				"soname(qt6/plugins/kf6/ktexteditor/compilerexplorer.so(x86_64))",
 				"soname(qt6/plugins/kf6/ktexteditor/eslintplugin.so(x86_64))",
@@ -1805,6 +1815,6 @@
 		}
 	},
 	"source-name": "kate",
-	"source-release": "1",
-	"source-version": "24.12.2"
+	"source-release": "2",
+	"source-version": "24.12.3"
 }

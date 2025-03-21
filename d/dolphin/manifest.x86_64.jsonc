@@ -83,9 +83,9 @@
 			"files": [
 				"/usr/bin/dolphin",
 				"/usr/bin/servicemenuinstaller",
-				"/usr/lib/libdolphinprivate.so.24.12.2",
+				"/usr/lib/libdolphinprivate.so.24.12.3",
 				"/usr/lib/libdolphinprivate.so.6",
-				"/usr/lib/libdolphinvcs.so.24.12.2",
+				"/usr/lib/libdolphinvcs.so.24.12.3",
 				"/usr/lib/libdolphinvcs.so.6",
 				"/usr/lib/qt6/plugins/dolphin/kcms/kcm_dolphingeneral.so",
 				"/usr/lib/qt6/plugins/dolphin/kcms/kcm_dolphinviewmodes.so",
@@ -319,6 +319,6 @@
 		}
 	},
 	"source-name": "dolphin",
-	"source-release": "1",
-	"source-version": "24.12.2"
+	"source-release": "2",
+	"source-version": "24.12.3"
 }
