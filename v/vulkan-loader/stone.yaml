@@ -5,7 +5,7 @@
 #
 name        : vulkan-loader
 version     : 1.4.309.0
-release     : 10
+release     : 11
 homepage    : https://vulkan.lunarg.com/doc/sdk
 upstreams   :
     - https://github.com/KhronosGroup/Vulkan-Loader/archive/refs/tags/vulkan-sdk-1.4.309.0.tar.gz : ddfeca84a868899fbb2c7f28b7c8fd1006e34b2b13ce653a63bddfb65cbc8d13
@@ -24,7 +24,10 @@ emul32     : true
 profiles   :
     - emul32:
         environment: |
-            export ASFLAGS="-32"
+            # This is required so that the assembler test in cmake succeeds
+            export ASFLAGS=" --32"
+            export CFLAGS+=" -m32"
+            export CXXFLAGS+=" -m32"
 setup       : |
     %cmake -DCMAKE_INSTALL_LIBDIR=lib%(libsuffix)
 build       : |

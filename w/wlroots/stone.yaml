@@ -5,7 +5,7 @@
 #
 name        : wlroots
 version     : 0.16.2
-release     : 1
+release     : 2
 homepage    : https://gitlab.freedesktop.org/wlroots/wlroots/
 upstreams   :
     - https://gitlab.freedesktop.org/wlroots/wlroots/-/releases/0.16.2/downloads/wlroots-0.16.2.tar.gz : 83e9a11605f23d4bf781ab1947089483d9ec3f7e9ba65398e0609593b77d44aa
@@ -15,7 +15,7 @@ description : |
 license     :
     - MIT
 builddeps   :
-    # TODO: xcb-errors, xwayland
+    # TODO: xcb-errors
     - binary(cmake)
     - binary(glslangValidator)
     - cmake(VulkanHeaders)
@@ -24,6 +24,7 @@ builddeps   :
     - pkgconfig(gbm)
     - pkgconfig(glesv2)
     - pkgconfig(hwdata)
+    # - pkgconfig(libavutil) # wlroots too old
     - pkgconfig(libdrm)
     - pkgconfig(libinput)
     - pkgconfig(libseat)
@@ -32,8 +33,12 @@ builddeps   :
     - pkgconfig(vulkan)
     - pkgconfig(wayland-protocols)
     - pkgconfig(wayland-server)
+    - pkgconfig(xcb-icccm)
     - pkgconfig(xcb-renderutil)
     - pkgconfig(xkbcommon)
+    - pkgconfig(xwayland)
+rundeps     :
+    - binary(xwayland)
 setup       : |
     %meson
 build       : |
