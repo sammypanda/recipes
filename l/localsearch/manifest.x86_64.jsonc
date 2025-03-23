@@ -23,6 +23,7 @@
 				"pkgconfig(libseccomp)",
 				"pkgconfig(libtiff-4)",
 				"pkgconfig(libxml-2.0)",
+				"pkgconfig(poppler-glib)",
 				"pkgconfig(systemd)",
 				"pkgconfig(tinysparql-3.0)",
 				"pkgconfig(upower-glib)"
@@ -42,6 +43,7 @@
 				"soname(libicui18n.so.75(x86_64))",
 				"soname(libjpeg.so.8(x86_64))",
 				"soname(libpng16.so.16(x86_64))",
+				"soname(libpoppler-glib.so.8(x86_64))",
 				"soname(libseccomp.so.2(x86_64))",
 				"soname(libtiff.so.6(x86_64))",
 				"soname(libtinysparql-3.0.so.0(x86_64))",
@@ -60,6 +62,7 @@
 				"/usr/lib/localsearch-3.0/extract-modules/libextract-jpeg.so",
 				"/usr/lib/localsearch-3.0/extract-modules/libextract-libav.so",
 				"/usr/lib/localsearch-3.0/extract-modules/libextract-mp3.so",
+				"/usr/lib/localsearch-3.0/extract-modules/libextract-pdf.so",
 				"/usr/lib/localsearch-3.0/extract-modules/libextract-png.so",
 				"/usr/lib/localsearch-3.0/extract-modules/libextract-ps.so",
 				"/usr/lib/localsearch-3.0/extract-modules/libextract-raw.so",
@@ -172,6 +175,7 @@
 				"/usr/share/localsearch3/extract-rules/10-ico.rule",
 				"/usr/share/localsearch3/extract-rules/10-jpeg.rule",
 				"/usr/share/localsearch3/extract-rules/10-mp3.rule",
+				"/usr/share/localsearch3/extract-rules/10-pdf.rule",
 				"/usr/share/localsearch3/extract-rules/10-png.rule",
 				"/usr/share/localsearch3/extract-rules/10-ps.rule",
 				"/usr/share/localsearch3/extract-rules/10-raw.rule",
@@ -199,6 +203,7 @@
 				"soname(localsearch-3.0/extract-modules/libextract-jpeg.so(x86_64))",
 				"soname(localsearch-3.0/extract-modules/libextract-libav.so(x86_64))",
 				"soname(localsearch-3.0/extract-modules/libextract-mp3.so(x86_64))",
+				"soname(localsearch-3.0/extract-modules/libextract-pdf.so(x86_64))",
 				"soname(localsearch-3.0/extract-modules/libextract-png.so(x86_64))",
 				"soname(localsearch-3.0/extract-modules/libextract-ps.so(x86_64))",
 				"soname(localsearch-3.0/extract-modules/libextract-raw.so(x86_64))",
@@ -210,6 +215,6 @@
 		}
 	},
 	"source-name": "localsearch",
-	"source-release": "3",
+	"source-release": "4",
 	"source-version": "3.9.0"
 }
