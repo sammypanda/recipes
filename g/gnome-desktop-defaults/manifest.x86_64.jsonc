@@ -9,7 +9,6 @@
 				"gnome-backgrounds",
 				"gnome-browser-connector",
 				"gnome-shell-extension-appindicator",
-				"gnome-shell-extension-tilingshell",
 				"morewaita-icon-theme",
 				"os-artwork"
 			],
@@ -30,6 +29,6 @@
 		}
 	},
 	"source-name": "gnome-desktop-defaults",
-	"source-release": "2",
+	"source-release": "3",
 	"source-version": "0.1.0"
 }
