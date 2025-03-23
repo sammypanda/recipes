@@ -6,13 +6,13 @@
 #
 name        : os-artwork
 version     : 1
-release     : 2
+release     : 3
 summary     : Operating System Artwork
 license     : Distributable
 homepage    : https://www.aerynos.com/
 upstreams   :
     - https://github.com/AerynOS/artwork/archive/refs/tags/v2.tar.gz : e77cae21fba3770ae9fd399a8b6018bf83dfa90d3e5a3f773688c8dd39011802
-    - git|https://github.com/AerynOS/brand.git : 25c73b52d910af35620f45294f7e5eba77316430
+    - git|https://github.com/AerynOS/brand.git : 0c1fa98ceb4d68cb61771349bd330285783210d8
 description : |
     Default artwork for AerynOS
 builddeps   :
