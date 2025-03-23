@@ -1,6 +1,7 @@
 0001-firmware_loader-add-earlyboot-trees-for-firmware-loa.patch
 0001-drivers-firmware-skip-simpledrm-if-nvidia-drm.modese.patch
 more-ISA-levels-and-uarches-for-kernel-6.1.79+.patch
+revert-input-xpad-add-support-for-zotac-gaming-zone.patch
 handheld/0001-hwmon-Add-driver-for-Steam-Deck-s-EC-sensors.patch
 handheld/0002-hwmon-steamdeck-hwmon-Add-support-for-max-battery-le.patch
 handheld/0003-leds-steamdeck-Add-support-for-Steam-Deck-LED.patch
