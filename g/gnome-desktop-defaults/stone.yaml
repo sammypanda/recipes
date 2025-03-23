@@ -6,7 +6,7 @@
 #
 name        : gnome-desktop-defaults
 version     : "0.1.0"
-release     : 3
+release     : 4
 license     : MPL-2.0
 homepage    : https://aerynos.com
 summary     : Default settings and dependencies for GNOME desktop
@@ -23,7 +23,3 @@ rundeps     :
 install     : |
     %install_dir %(installroot)%(datadir)/glib-2.0/schemas
     %install_file %(pkgdir)/10_*.gschema.override %(installroot)%(datadir)/glib-2.0/schemas/.
-
-    # We've found vulkan too slow for initialisation of gtk4 apps
-    # Users can mask this at their discretion
-    %install_file %(pkgdir)/10-gsk-renderer.conf %(installroot)%(libdir)/environment.d/10-gsk-renderer.conf
