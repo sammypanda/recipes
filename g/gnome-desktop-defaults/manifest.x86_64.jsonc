@@ -4,8 +4,8 @@
 	"packages": {
 		"gnome-desktop-defaults": {
 			"depends": [
+				"adwaita-fonts",
 				"binary(gnome-shell)",
-				"font-hack",
 				"gnome-backgrounds",
 				"gnome-browser-connector",
 				"gnome-shell-extension-appindicator",
@@ -28,6 +28,6 @@
 		}
 	},
 	"source-name": "gnome-desktop-defaults",
-	"source-release": "4",
+	"source-release": "5",
 	"source-version": "0.1.0"
 }
