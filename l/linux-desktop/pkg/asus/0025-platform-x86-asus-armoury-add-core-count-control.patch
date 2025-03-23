@@ -363,5 +363,5 @@ index f3494a9efea7..e735f35b423c 100644
  
  /* gpu mux switch, 0 = dGPU, 1 = Optimus */
 -- 
-2.47.1
+2.48.1
 

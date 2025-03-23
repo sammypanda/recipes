@@ -654,5 +654,5 @@ index 66bae5cea4f9..9ebee77638a0 100644
  	 * T90CHI's keyboard dock returns same ID values as T100CHI's dock.
  	 * Thus, identify T90CHI dock with product name string.
 -- 
-2.47.1
+2.48.1
 

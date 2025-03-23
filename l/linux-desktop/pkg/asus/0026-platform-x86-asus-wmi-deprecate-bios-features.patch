@@ -586,5 +586,5 @@ index 1377682461d7..519ab1899d85 100644
  	if (err)
  		goto fail_fan_boost_mode;
 -- 
-2.47.1
+2.48.1
 

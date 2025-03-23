@@ -1,6 +1,7 @@
 0001-firmware_loader-add-earlyboot-trees-for-firmware-loa.patch
 0001-drivers-firmware-skip-simpledrm-if-nvidia-drm.modese.patch
 more-ISA-levels-and-uarches-for-kernel-6.1.79+.patch
+revert-input-xpad-add-support-for-zotac-gaming-zone.patch
 asus/0001-Tmp-add-GA605W-H7606W-to-AMD-PMF-quirks.patch
 asus/0002-drm-amd-display-Avoid-divide-by-zero-by-initializing.patch
 asus/0003-hid-add-VID-PID-for-ASUS-ROG-RAIKIRI-PRO.patch

@@ -261,5 +261,5 @@ index 9ebee77638a0..83883f58202b 100644
  		/* Initialize keyboard */
  		ret = asus_kbd_init(hdev, FEATURE_KBD_REPORT_ID);
 -- 
-2.47.1
+2.48.1
 

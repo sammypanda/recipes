@@ -143,5 +143,5 @@ index 3e6250a7bd48..5c12d8fd1c8e 100644
  	ally_cfg->vibration_intensity[0] = 0x64;
  	ally_cfg->vibration_intensity[1] = 0x64;
 -- 
-2.47.1
+2.48.1
 

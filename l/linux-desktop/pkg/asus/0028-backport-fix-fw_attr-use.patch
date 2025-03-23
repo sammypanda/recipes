@@ -56,5 +56,5 @@ index 6248c5e16e52..b49513947c52 100644
  	mutex_unlock(&asus_armoury.mutex);
  }
 -- 
-2.47.1
+2.48.1
 

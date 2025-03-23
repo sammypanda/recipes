@@ -452,5 +452,5 @@ index 7d172d64b814..66376e6cbd71 100644
  #define ALLY_DEVICE_ATTR_RW(_name, _sysfs_name)    \
  	struct device_attribute dev_attr_##_name = \
 -- 
-2.47.1
+2.48.1
 

@@ -54,5 +54,5 @@ index d41e78c196a0..3e6250a7bd48 100644
  		hid_warn(hdev,
  			"The MCU firmware version must be %d or greater to avoid issues with suspend.\n",
 -- 
-2.47.1
+2.48.1
 

@@ -828,5 +828,5 @@ index 96ff25b2b51b..4574e30c53fc 100644
  #define ASUS_WMI_METHODID_SPEC	        0x43455053 /* BIOS SPECification */
  #define ASUS_WMI_METHODID_SFBD		0x44424653 /* Set First Boot Device */
 -- 
-2.47.1
+2.48.1
 

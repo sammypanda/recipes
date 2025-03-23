@@ -166,5 +166,5 @@ index 4e1eccbd99ad..160d00690d41 100644
  #define ALLY_BTN_SHOW(_fname, _btn_name, _secondary)                           \
  	static ssize_t _fname##_show(struct device *dev,                       \
 -- 
-2.47.1
+2.48.1
 
