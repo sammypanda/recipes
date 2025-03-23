@@ -5,7 +5,7 @@
 #
 name        : localsearch
 version     : 3.9.0
-release     : 2
+release     : 3
 homepage    : https://tracker.gnome.org/
 upstreams   :
     - https://download.gnome.org/sources/localsearch/3.9/localsearch-3.9.0.tar.xz : d42f408dc3fb28fe54f5a9abbf5f1decf5818db9c2e9ec51c09464bdfd0c14b9
@@ -53,6 +53,11 @@ builddeps   :
     # pkgconfig(totem-plparser)
     - pkgconfig(tinysparql-3.0)
     - pkgconfig(upower-glib)
+packages    :
+    - "%(name)":
+        paths:
+            # Avoid devel package
+            - /usr/lib/libtracker-extract.so
 setup       : |
     # TODO: do an enablement pass on this pkg
     # TODO: enable landlock support in kernel
@@ -68,3 +73,6 @@ install     : |
     mv %(installroot)/etc/xdg/autostart/localsearch-3.desktop \
         %(installroot)/usr/share/xdg/autostart/
     rm -frv %(installroot)/etc
+
+    # boulder being an ass with rpath
+    ln %(installroot)%(libdir)/localsearch-3.0/libtracker-extract.so %(installroot)%(libdir)/libtracker-extract.so

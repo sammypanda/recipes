@@ -45,12 +45,12 @@
 				"soname(libseccomp.so.2(x86_64))",
 				"soname(libtiff.so.6(x86_64))",
 				"soname(libtinysparql-3.0.so.0(x86_64))",
-				"soname(libtracker-extract.so(x86_64))",
 				"soname(libupower-glib.so.3(x86_64))",
 				"soname(libxml2.so.2(x86_64))"
 			],
 			"files": [
 				"/usr/bin/localsearch",
+				"/usr/lib/libtracker-extract.so",
 				"/usr/lib/localsearch-3.0/extract-modules/libextract-abw.so",
 				"/usr/lib/localsearch-3.0/extract-modules/libextract-bmp.so",
 				"/usr/lib/localsearch-3.0/extract-modules/libextract-desktop.so",
@@ -189,6 +189,7 @@
 			"name": "localsearch",
 			"provides": [
 				"binary(localsearch)",
+				"soname(libtracker-extract.so(x86_64))",
 				"soname(localsearch-3.0/extract-modules/libextract-abw.so(x86_64))",
 				"soname(localsearch-3.0/extract-modules/libextract-bmp.so(x86_64))",
 				"soname(localsearch-3.0/extract-modules/libextract-desktop.so(x86_64))",
@@ -209,6 +210,6 @@
 		}
 	},
 	"source-name": "localsearch",
-	"source-release": "2",
+	"source-release": "3",
 	"source-version": "3.9.0"
 }
