@@ -7,7 +7,7 @@
       "id": "aerynos",
       "id_like": "linux",
       "name": "AerynOS",
-      "display": "AerynOS 0.25.1",
+      "display": "AerynOS 2025.03",
       "ansi_color": "1;35",
       "former_identities": [
         {
@@ -37,10 +37,10 @@
       ]
     },
     "version": {
-      "full": "0.2025.1",
-      "short": "0.25.1",
-      "build_id": "2025.1",
-      "released": "2025-03-20T00:00:00Z"
+      "full": "2025.03",
+      "short": "2025.03",
+      "build_id": "2025.03",
+      "released": "2025-03-23T00:00:00Z"
     }
   },
   "system": {
@@ -104,7 +104,7 @@
           "scope": "support"
         },
         "bugs": {
-          "url": "https://github.com/AerynOS/issues",
+          "url": "https://github.com/orgs/AerynOS/discussions",
           "display_name": "Issue Tracker",
           "scope": "bug-tracker"
         },
