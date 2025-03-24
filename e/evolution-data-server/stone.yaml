@@ -5,7 +5,7 @@
 #
 name        : evolution-data-server
 version     : 3.56.0
-release     : 11
+release     : 12
 homepage    : https://gitlab.gnome.org/GNOME/evolution-data-server
 upstreams   :
     - https://download.gnome.org/sources/evolution-data-server/3.56/evolution-data-server-3.56.0.tar.xz : 7ae5482aa4ee2894467716c5be982500e1d511dddf4ab29b68fdb107d7f8a8ff
