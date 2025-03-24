@@ -5,7 +5,7 @@
 #
 name        : samba
 version     : 4.22.0
-release     : 11
+release     : 12
 homepage    : https://www.samba.org/
 upstreams   :
     - https://download.samba.org/pub/samba/stable/samba-4.22.0.tar.gz : b39242e1ac1f5469e634c94b2e472045e5060975c2dd6c4cdcdfce0c5586cd76
@@ -64,7 +64,7 @@ packages    :
             - /usr/lib/lib*.so*
 setup       : |
     %configure \
-        --bundled-libraries=!cmocka,!tdb,!talloc,!pytalloc-util,!tevent,!popt,!ldb,!pyldb-util \
+        --bundled-libraries='!cmocka,!tdb,!talloc,!pytalloc-util,!tevent,!popt,!ldb,!pyldb-util' \
         --enable-fhs \
         --disable-python \
         --disable-rpath-install \
