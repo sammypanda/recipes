@@ -5,7 +5,7 @@
 #
 name        : vte
 version     : 0.80.0
-release     : 11
+release     : 12
 homepage    : https://wiki.gnome.org/Apps/Terminal/VTE
 upstreams   :
     - https://download.gnome.org/sources/vte/0.80/vte-0.80.0.tar.xz : 267f63739765e568cf8113d0e2ee8f593028946187854bebe268c778e62647c8
