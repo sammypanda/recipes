@@ -13,7 +13,6 @@
 			],
 			"depends": [
 				"soname(libc.so.6(x86_64))",
-				"soname(libharfbuzz.so.0(x86_64))",
 				"soname(libpng16.so.16(x86_64))",
 				"soname(libz.so.1(x86_64))"
 			],
@@ -86,7 +85,6 @@
 			],
 			"depends": [
 				"freetype",
-				"pkgconfig(harfbuzz)",
 				"pkgconfig(libpng)",
 				"pkgconfig(zlib)"
 			],
@@ -156,6 +154,6 @@
 		}
 	},
 	"source-name": "freetype",
-	"source-release": "9",
+	"source-release": "10",
 	"source-version": "2.13.3"
 }
