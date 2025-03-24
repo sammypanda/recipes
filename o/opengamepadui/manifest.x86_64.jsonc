@@ -38,6 +38,7 @@
 				"/usr/share/opengamepadui/scripts/make_nice",
 				"/usr/share/opengamepadui/scripts/manage_input",
 				"/usr/share/polkit-1/actions/org.shadowblip.manage_input.policy",
+				"/usr/share/polkit-1/actions/org.shadowblip.nixos_updater.policy",
 				"/usr/share/polkit-1/actions/org.shadowblip.setcap.policy"
 			],
 			"name": "opengamepadui",
@@ -48,6 +49,6 @@
 		}
 	},
 	"source-name": "opengamepadui",
-	"source-release": "4",
-	"source-version": "0.37.1"
+	"source-release": "5",
+	"source-version": "0.38.0"
 }
