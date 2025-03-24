@@ -5,6 +5,7 @@
 		"harfbuzz": {
 			"build-depends": [
 				"pkgconfig(cairo)",
+				"pkgconfig(freetype2)",
 				"pkgconfig(glib-2.0)",
 				"pkgconfig(gobject-2.0)",
 				"pkgconfig(gobject-introspection-1.0)",
@@ -47,6 +48,7 @@
 		"harfbuzz-devel": {
 			"build-depends": [
 				"pkgconfig(cairo)",
+				"pkgconfig(freetype2)",
 				"pkgconfig(glib-2.0)",
 				"pkgconfig(gobject-2.0)",
 				"pkgconfig(gobject-introspection-1.0)",
@@ -149,6 +151,6 @@
 		}
 	},
 	"source-name": "harfbuzz",
-	"source-release": "11",
+	"source-release": "12",
 	"source-version": "10.4.0"
 }

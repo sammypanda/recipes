@@ -5,7 +5,7 @@
 #
 name        : harfbuzz
 version     : 10.4.0
-release     : 11
+release     : 12
 homepage    : https://harfbuzz.github.io/
 upstreams   :
     - https://github.com/harfbuzz/harfbuzz/releases/download/10.4.0/harfbuzz-10.4.0.tar.xz : 480b6d25014169300669aa1fc39fb356c142d5028324ea52b3a27648b9beaad8
@@ -17,7 +17,7 @@ license     :
     - HPND
 builddeps   :
     - pkgconfig(cairo)
-    # - pkgconfig(freetype2)
+    - pkgconfig(freetype2)
     - pkgconfig(glib-2.0)
     - pkgconfig(gobject-2.0)
     - pkgconfig(gobject-introspection-1.0)
