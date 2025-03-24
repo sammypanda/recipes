@@ -5,7 +5,6 @@
 		"harfbuzz": {
 			"build-depends": [
 				"pkgconfig(cairo)",
-				"pkgconfig(freetype2)",
 				"pkgconfig(glib-2.0)",
 				"pkgconfig(gobject-2.0)",
 				"pkgconfig(gobject-introspection-1.0)",
@@ -20,21 +19,20 @@
 				"soname(libgobject-2.0.so.0(x86_64))",
 				"soname(libgraphite2.so.3(x86_64))",
 				"soname(libicuuc.so.75(x86_64))",
-				"soname(libm.so.6(x86_64))",
-				"soname(libstdc++.so.6(x86_64))"
+				"soname(libm.so.6(x86_64))"
 			],
 			"files": [
 				"/usr/lib/girepository-1.0/HarfBuzz-0.0.typelib",
 				"/usr/lib/libharfbuzz-cairo.so.0",
-				"/usr/lib/libharfbuzz-cairo.so.0.60900.0",
+				"/usr/lib/libharfbuzz-cairo.so.0.61040.0",
 				"/usr/lib/libharfbuzz-gobject.so.0",
-				"/usr/lib/libharfbuzz-gobject.so.0.60900.0",
+				"/usr/lib/libharfbuzz-gobject.so.0.61040.0",
 				"/usr/lib/libharfbuzz-icu.so.0",
-				"/usr/lib/libharfbuzz-icu.so.0.60900.0",
+				"/usr/lib/libharfbuzz-icu.so.0.61040.0",
 				"/usr/lib/libharfbuzz-subset.so.0",
-				"/usr/lib/libharfbuzz-subset.so.0.60900.0",
+				"/usr/lib/libharfbuzz-subset.so.0.61040.0",
 				"/usr/lib/libharfbuzz.so.0",
-				"/usr/lib/libharfbuzz.so.0.60900.0",
+				"/usr/lib/libharfbuzz.so.0.61040.0",
 				"/usr/share/gir-1.0/HarfBuzz-0.0.gir"
 			],
 			"name": "harfbuzz",
@@ -49,7 +47,6 @@
 		"harfbuzz-devel": {
 			"build-depends": [
 				"pkgconfig(cairo)",
-				"pkgconfig(freetype2)",
 				"pkgconfig(glib-2.0)",
 				"pkgconfig(gobject-2.0)",
 				"pkgconfig(gobject-introspection-1.0)",
@@ -118,7 +115,7 @@
 				"/usr/include/harfbuzz/hb-shape-plan.h",
 				"/usr/include/harfbuzz/hb-shape.h",
 				"/usr/include/harfbuzz/hb-style.h",
-				"/usr/include/harfbuzz/hb-subset-repacker.h",
+				"/usr/include/harfbuzz/hb-subset-serialize.h",
 				"/usr/include/harfbuzz/hb-subset.h",
 				"/usr/include/harfbuzz/hb-unicode.h",
 				"/usr/include/harfbuzz/hb-version.h",
@@ -152,6 +149,6 @@
 		}
 	},
 	"source-name": "harfbuzz",
-	"source-release": "9",
-	"source-version": "9.0.0"
+	"source-release": "11",
+	"source-version": "10.4.0"
 }
