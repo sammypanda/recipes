@@ -40,7 +40,7 @@
 				"soname(libgstreamer-1.0.so.0(x86_64))",
 				"soname(libgsttag-1.0.so.0(x86_64))",
 				"soname(libgudev-1.0.so.0(x86_64))",
-				"soname(libicui18n.so.75(x86_64))",
+				"soname(libicui18n.so.77(x86_64))",
 				"soname(libjpeg.so.8(x86_64))",
 				"soname(libpng16.so.16(x86_64))",
 				"soname(libpoppler-glib.so.8(x86_64))",
@@ -215,6 +215,6 @@
 		}
 	},
 	"source-name": "localsearch",
-	"source-release": "4",
+	"source-release": "5",
 	"source-version": "3.9.0"
 }
