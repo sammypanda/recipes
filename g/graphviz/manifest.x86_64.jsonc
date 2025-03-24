@@ -15,6 +15,7 @@
 				"pkgconfig(librsvg-2.0)",
 				"pkgconfig(libwebp)",
 				"pkgconfig(pango)",
+				"pkgconfig(poppler)",
 				"pkgconfig(xaw6)"
 			],
 			"depends": [
@@ -43,6 +44,7 @@
 				"soname(libpango-1.0.so.0(x86_64))",
 				"soname(libpangocairo-1.0.so.0(x86_64))",
 				"soname(libpangoft2-1.0.so.0(x86_64))",
+				"soname(libpoppler-glib.so.8(x86_64))",
 				"soname(librsvg-2.so.2(x86_64))",
 				"soname(libunwind.so.1(x86_64))",
 				"soname(libwebp.so.7(x86_64))",
@@ -100,6 +102,8 @@
 				"/usr/lib/graphviz/libgvplugin_neato_layout.so.6.0.0",
 				"/usr/lib/graphviz/libgvplugin_pango.so.6",
 				"/usr/lib/graphviz/libgvplugin_pango.so.6.0.0",
+				"/usr/lib/graphviz/libgvplugin_poppler.so.6",
+				"/usr/lib/graphviz/libgvplugin_poppler.so.6.0.0",
 				"/usr/lib/graphviz/libgvplugin_rsvg.so.6",
 				"/usr/lib/graphviz/libgvplugin_rsvg.so.6.0.0",
 				"/usr/lib/graphviz/libgvplugin_vt.so.6",
@@ -301,6 +305,7 @@
 				"soname(graphviz/libgvplugin_kitty.so.6(x86_64))",
 				"soname(graphviz/libgvplugin_neato_layout.so.6(x86_64))",
 				"soname(graphviz/libgvplugin_pango.so.6(x86_64))",
+				"soname(graphviz/libgvplugin_poppler.so.6(x86_64))",
 				"soname(graphviz/libgvplugin_rsvg.so.6(x86_64))",
 				"soname(graphviz/libgvplugin_vt.so.6(x86_64))",
 				"soname(graphviz/libgvplugin_webp.so.6(x86_64))",
@@ -326,6 +331,7 @@
 				"pkgconfig(librsvg-2.0)",
 				"pkgconfig(libwebp)",
 				"pkgconfig(pango)",
+				"pkgconfig(poppler)",
 				"pkgconfig(xaw6)"
 			],
 			"depends": [
@@ -364,6 +370,7 @@
 				"/usr/lib/graphviz/libgvplugin_kitty.so",
 				"/usr/lib/graphviz/libgvplugin_neato_layout.so",
 				"/usr/lib/graphviz/libgvplugin_pango.so",
+				"/usr/lib/graphviz/libgvplugin_poppler.so",
 				"/usr/lib/graphviz/libgvplugin_rsvg.so",
 				"/usr/lib/graphviz/libgvplugin_vt.so",
 				"/usr/lib/graphviz/libgvplugin_webp.so",
@@ -412,6 +419,7 @@
 				"pkgconfig(librsvg-2.0)",
 				"pkgconfig(libwebp)",
 				"pkgconfig(pango)",
+				"pkgconfig(poppler)",
 				"pkgconfig(xaw6)"
 			],
 			"files": [
@@ -494,6 +502,6 @@
 		}
 	},
 	"source-name": "graphviz",
-	"source-release": "2",
+	"source-release": "3",
 	"source-version": "12.2.1"
 }
