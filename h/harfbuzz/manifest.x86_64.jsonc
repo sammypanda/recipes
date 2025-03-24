@@ -19,7 +19,7 @@
 				"soname(libglib-2.0.so.0(x86_64))",
 				"soname(libgobject-2.0.so.0(x86_64))",
 				"soname(libgraphite2.so.3(x86_64))",
-				"soname(libicuuc.so.75(x86_64))",
+				"soname(libicuuc.so.77(x86_64))",
 				"soname(libm.so.6(x86_64))"
 			],
 			"files": [
@@ -151,6 +151,6 @@
 		}
 	},
 	"source-name": "harfbuzz",
-	"source-release": "12",
+	"source-release": "13",
 	"source-version": "10.4.0"
 }
