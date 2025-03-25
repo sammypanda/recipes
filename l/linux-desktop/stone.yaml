@@ -1,14 +1,15 @@
 #
 # SPDX-FileCopyrightText: © 2020-2024 Serpent OS Developers
+# SPDX-FileCopyrightText: © 2025 AerynOS Developers
 #
 # SPDX-License-Identifier: MPL-2.0
 #
 name        : linux-desktop
-version     : 6.13.4
-release     : 85
+version     : 6.13.8
+release     : 90
 homepage    : https://kernel.org/
 upstreams   :
-    - https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.13.4.tar.xz : b80e0bc8efbc31e9ce5a84d1084dcccfa40e01bea8cc25afd06648b93d61339e
+    - https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.13.8.tar.xz : 259afa59d73d676bec2ae89beacd949e08d54d3f70a7f8b0a742315095751abb
 summary     : The Linux Kernel for desktop systems
 description : |
     The Linux Kernel for desktop systems

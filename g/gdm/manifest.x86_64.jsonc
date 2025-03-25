@@ -238,7 +238,8 @@
 				"/usr/share/locale/zh_CN/LC_MESSAGES/gdm.mo",
 				"/usr/share/locale/zh_HK/LC_MESSAGES/gdm.mo",
 				"/usr/share/locale/zh_TW/LC_MESSAGES/gdm.mo",
-				"/usr/share/locale/zu/LC_MESSAGES/gdm.mo"
+				"/usr/share/locale/zu/LC_MESSAGES/gdm.mo",
+				"/usr/share/polkit-1/rules.d/20-gdm.rules"
 			],
 			"name": "gdm",
 			"provides": [
@@ -298,6 +299,6 @@
 		}
 	},
 	"source-name": "gdm",
-	"source-release": "13",
-	"source-version": "47.0"
+	"source-release": "15",
+	"source-version": "48.0"
 }

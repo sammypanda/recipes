@@ -1,4 +1,4 @@
-From 3d68b0c294d9bd5fff7c63c2b0cc058fd15b5890 Mon Sep 17 00:00:00 2001
+From 22bb3627c43a3b19e553c69884fe52a7626243e1 Mon Sep 17 00:00:00 2001
 From: "Luke D. Jones" <luke@ljones.dev>
 Date: Thu, 19 Sep 2024 17:19:37 +1200
 Subject: [PATCH 27/28] platform/x86: asus-armoury: add the ppt_* and nv_*
@@ -9,13 +9,13 @@ and adds proper min/max levels plus defaults.
 
 Signed-off-by: Luke D. Jones <luke@ljones.dev>
 ---
- drivers/platform/x86/asus-armoury.c        |  182 +++-
- drivers/platform/x86/asus-armoury.h        | 1069 +++++++++++++++++++-
+ drivers/platform/x86/asus-armoury.c        |  191 +++-
+ drivers/platform/x86/asus-armoury.h        | 1100 +++++++++++++++++++-
  include/linux/platform_data/x86/asus-wmi.h |    3 +
- 3 files changed, 1241 insertions(+), 13 deletions(-)
+ 3 files changed, 1281 insertions(+), 13 deletions(-)
 
 diff --git a/drivers/platform/x86/asus-armoury.c b/drivers/platform/x86/asus-armoury.c
-index 49e1788d8bba..5768997ea2d3 100644
+index 49e1788d8bba..6248c5e16e52 100644
 --- a/drivers/platform/x86/asus-armoury.c
 +++ b/drivers/platform/x86/asus-armoury.c
 @@ -21,6 +21,7 @@
@@ -169,7 +169,7 @@ index 49e1788d8bba..5768997ea2d3 100644
  
  	return 0;
  
-@@ -849,6 +935,78 @@ static int asus_fw_attr_add(void)
+@@ -849,6 +935,87 @@ static int asus_fw_attr_add(void)
  
  /* Init / exit ****************************************************************/
  
@@ -207,9 +207,18 @@ index 49e1788d8bba..5768997ea2d3 100644
 +		}
 +	} else {
 +		limits = power_data->dc_data;
-+		if (!limits && !power_data->ac_data) {
-+			pr_err("No power limits available\n");
-+			return false;
++		if (!limits) {
++			rog->ppt_pl1_spl = 0;
++			rog->ppt_pl2_sppt = 0;
++			rog->ppt_pl3_fppt = 0;
++			rog->ppt_apu_sppt = 0;
++			rog->ppt_platform_sppt = 0;
++			rog->nv_dynamic_boost = 0;
++			rog->nv_temp_target = 0;
++			rog->nv_tgp = 0;
++
++			pr_warn("No DC power limits available, initializing to 0\n");
++			return true;
 +		}
 +	}
 +
@@ -248,7 +257,7 @@ index 49e1788d8bba..5768997ea2d3 100644
  static int __init asus_fw_init(void)
  {
  	char *wmi_uid;
-@@ -879,6 +1037,16 @@ static int __init asus_fw_init(void)
+@@ -879,6 +1046,16 @@ static int __init asus_fw_init(void)
  		}
  	}
  
@@ -266,7 +275,7 @@ index 49e1788d8bba..5768997ea2d3 100644
  	if (err)
  		return err;
 diff --git a/drivers/platform/x86/asus-armoury.h b/drivers/platform/x86/asus-armoury.h
-index 5d6bef6d2b12..427f0eb0a4de 100644
+index 5d6bef6d2b12..5a10da2a26eb 100644
 --- a/drivers/platform/x86/asus-armoury.h
 +++ b/drivers/platform/x86/asus-armoury.h
 @@ -8,6 +8,7 @@
@@ -334,7 +343,7 @@ index 5d6bef6d2b12..427f0eb0a4de 100644
  #define ATTR_GROUP_BOOL_RO(_attrname, _fsname, _wmi, _dispname) \
  	__ATTR_CURRENT_INT_RO(_attrname, _wmi);                 \
  	__ATTR_GROUP_ENUM(_attrname, _fsname, "0;1", _dispname)
-@@ -178,4 +197,1042 @@ static ssize_t int_type_show(struct kobject *kobj, struct kobj_attribute *attr,
+@@ -178,4 +197,1073 @@ static ssize_t int_type_show(struct kobject *kobj, struct kobj_attribute *attr,
  		.name = _fsname, .attrs = _attrname##_attrs             \
  	}
  
@@ -495,6 +504,37 @@ index 5d6bef6d2b12..427f0eb0a4de 100644
 +				.nv_temp_target_min = 75,
 +				.nv_temp_target_max = 87,
 +			},
++		},
++	},
++	{
++		.matches = {
++			DMI_MATCH(DMI_BOARD_NAME, "FA507N"),
++		},
++		.driver_data = &(struct power_data) {
++			.ac_data = &(struct power_limits) {
++				.ppt_pl1_spl_min = 15,
++				.ppt_pl1_spl_max = 80,
++				.ppt_pl2_sppt_min = 35,
++				.ppt_pl2_sppt_max = 80,
++				.ppt_pl3_fppt_min = 35,
++				.ppt_pl3_fppt_max = 80,
++				.nv_dynamic_boost_min = 5,
++				.nv_dynamic_boost_max = 25,
++				.nv_temp_target_min = 75,
++				.nv_temp_target_max = 87,
++			},
++			.dc_data = &(struct power_limits) {
++				.ppt_pl1_spl_min = 15,
++				.ppt_pl1_spl_def = 45,
++				.ppt_pl1_spl_max = 65,
++				.ppt_pl2_sppt_min = 35,
++				.ppt_pl2_sppt_def = 54,
++				.ppt_pl2_sppt_max = 65,
++				.ppt_pl3_fppt_min = 35,
++				.ppt_pl3_fppt_max = 65,
++				.nv_temp_target_min = 75,
++				.nv_temp_target_max = 87,
++			}
 +		},
 +	},
 +	{
@@ -1378,7 +1418,7 @@ index 5d6bef6d2b12..427f0eb0a4de 100644
 +
  #endif /* _ASUS_ARMOURY_H_ */
 diff --git a/include/linux/platform_data/x86/asus-wmi.h b/include/linux/platform_data/x86/asus-wmi.h
-index 6e81335d57a0..71a3de42eac8 100644
+index e735f35b423c..e99cd9a06e2f 100644
 --- a/include/linux/platform_data/x86/asus-wmi.h
 +++ b/include/linux/platform_data/x86/asus-wmi.h
 @@ -144,6 +144,9 @@

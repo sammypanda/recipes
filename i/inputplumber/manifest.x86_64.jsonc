@@ -43,7 +43,6 @@
 				"/usr/share/inputplumber/capability_maps/onexplayer_type3.yaml",
 				"/usr/share/inputplumber/capability_maps/onexplayer_type4.yaml",
 				"/usr/share/inputplumber/capability_maps/orangepi_type1.yaml",
-				"/usr/share/inputplumber/capability_maps/zotac_type1.yaml",
 				"/usr/share/inputplumber/devices/10-ignore_unsupported.yaml",
 				"/usr/share/inputplumber/devices/50-anbernic_win600.yaml",
 				"/usr/share/inputplumber/devices/50-aokzoe_a1.yaml",
@@ -76,11 +75,11 @@
 				"/usr/share/inputplumber/devices/50-onexplayer_mini_a07.yaml",
 				"/usr/share/inputplumber/devices/50-onexplayer_mini_pro.yaml",
 				"/usr/share/inputplumber/devices/50-onexplayer_onexfly.yaml",
+				"/usr/share/inputplumber/devices/50-onexplayer_onexfly_pro.yaml",
 				"/usr/share/inputplumber/devices/50-orangepi_neo.yaml",
 				"/usr/share/inputplumber/devices/50-rog_ally.yaml",
 				"/usr/share/inputplumber/devices/50-rog_ally_x.yaml",
 				"/usr/share/inputplumber/devices/50-steam_deck.yaml",
-				"/usr/share/inputplumber/devices/50-zotac_zone.yaml",
 				"/usr/share/inputplumber/devices/60-horipad_steam.yaml",
 				"/usr/share/inputplumber/devices/60-ps4_gamepad.yaml",
 				"/usr/share/inputplumber/devices/60-ps5_ds-edge_gamepad.yaml",
@@ -91,8 +90,9 @@
 				"/usr/share/inputplumber/devices/60-xbox_one_bt_gamepad.yaml",
 				"/usr/share/inputplumber/devices/60-xbox_one_elite_gamepad.yaml",
 				"/usr/share/inputplumber/devices/60-xbox_one_gamepad.yaml",
+				"/usr/share/inputplumber/devices/65-generic_gamepad.yaml",
 				"/usr/share/inputplumber/devices/69-ignore_generic.yaml",
-				"/usr/share/inputplumber/devices/70-generic_gamepad.yaml",
+				"/usr/share/inputplumber/profiles/debug.yaml",
 				"/usr/share/inputplumber/profiles/default.yaml",
 				"/usr/share/inputplumber/profiles/mouse_keyboard_wasd.yaml",
 				"/usr/share/inputplumber/profiles/test.yaml",
@@ -107,6 +107,6 @@
 		}
 	},
 	"source-name": "inputplumber",
-	"source-release": "10",
-	"source-version": "0.48.0"
+	"source-release": "14",
+	"source-version": "0.49.6"
 }

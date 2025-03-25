@@ -5,6 +5,7 @@
 		"vte": {
 			"build-depends": [
 				"binary(valac)",
+				"cmake(FastFloat)",
 				"pkgconfig(cairo)",
 				"pkgconfig(cairo-gobject)",
 				"pkgconfig(fribidi)",
@@ -36,7 +37,7 @@
 				"soname(libgobject-2.0.so.0(x86_64))",
 				"soname(libgraphene-1.0.so.0(x86_64))",
 				"soname(libgtk-4.so.1(x86_64))",
-				"soname(libicuuc.so.75(x86_64))",
+				"soname(libicuuc.so.77(x86_64))",
 				"soname(liblz4.so.1(x86_64))",
 				"soname(libm.so.6(x86_64))",
 				"soname(libpango-1.0.so.0(x86_64))",
@@ -51,8 +52,10 @@
 				"/usr/lib/libvte-2.91-gtk4.so.0",
 				"/usr/lib/systemd/user/vte-spawn-.scope.d/defaults.conf",
 				"/usr/lib/vte/vte-urlencode-cwd",
+				"/usr/share/applications/org.gnome.Vte.App.Gtk4.desktop",
 				"/usr/share/defaults/etc/profile.d/10-vte.sh",
-				"/usr/share/gir-1.0/Vte-3.91.gir"
+				"/usr/share/gir-1.0/Vte-3.91.gir",
+				"/usr/share/xdg-terminals/org.gnome.Vte.App.Gtk4.desktop"
 			],
 			"name": "vte",
 			"provides": [
@@ -63,6 +66,7 @@
 		"vte-devel": {
 			"build-depends": [
 				"binary(valac)",
+				"cmake(FastFloat)",
 				"pkgconfig(cairo)",
 				"pkgconfig(cairo-gobject)",
 				"pkgconfig(fribidi)",
@@ -113,6 +117,6 @@
 		}
 	},
 	"source-name": "vte",
-	"source-release": "10",
-	"source-version": "0.78.2"
+	"source-release": "12",
+	"source-version": "0.80.0"
 }
