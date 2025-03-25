@@ -1012,6 +1012,6 @@
 		}
 	},
 	"source-name": "linux-headers",
-	"source-release": "20",
-	"source-version": "6.12.8"
+	"source-release": "21",
+	"source-version": "6.13.8"
 }
