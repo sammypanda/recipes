@@ -5,7 +5,7 @@
 #
 name        : firefox
 version     : 136.0.2
-release     : 19
+release     : 20
 homepage    : https://www.mozilla.org/
 upstreams   :
     - https://ftp.mozilla.org/pub/firefox/releases/136.0.2/source/firefox-136.0.2.source.tar.xz : 53187c9e84543f77836e557c2a29f95238b111e779154217df2ed9b50ddbf200
