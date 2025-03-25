@@ -5,7 +5,7 @@
 #
 name        : mutter
 version     : 48.0
-release     : 17
+release     : 18
 homepage    : https://gnome.org
 upstreams   :
     - https://download.gnome.org/sources/mutter/48/mutter-48.0.tar.xz : 9ca177fd5851a4077f17f6a888c45447b7d1163c9879580597a1fd837f47e57d
@@ -93,6 +93,10 @@ builddeps   :
 rundeps     :
     - binary(gnome-session)
 setup       : |
+    for i in $(cat %(pkgdir)/series); do
+        %patch %(pkgdir)/$i
+    done
+
     %meson -Dtests=disabled \
            -Dprofiler=false \
            -Dwayland_eglstream=true \
