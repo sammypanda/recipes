@@ -5,7 +5,7 @@
 #
 name        : discord
 version     : 0.0.89
-release     : 15
+release     : 16
 summary     : Group chat, video, and voice calling app
 license     : Distributable
 homepage    : https://discord.com/
