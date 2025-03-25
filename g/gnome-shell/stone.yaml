@@ -5,7 +5,7 @@
 #
 name        : gnome-shell
 version     : 48.0
-release     : 27
+release     : 28
 homepage    : https://gitlab.gnome.org/GNOME/gnome-shell
 upstreams   :
     - https://download.gnome.org/sources/gnome-shell/48/gnome-shell-48.0.tar.xz : 36aac2edcdc7588aaadb658cd4687df262b37ba0b667102dcbefbff0c2232bc3
@@ -74,6 +74,8 @@ rundeps     :
     - xdg-desktop-portal-gnome
     - xkeyboard-config
 setup       : |
+    # Redonkulous logo sizes are redonkulous
+    %patch %(pkgdir)/3674.patch
     %meson -Dtests=false -Dman=false
 build       : |
     %meson_build
