@@ -44,6 +44,7 @@
 				"binary(Xwayland)",
 				"binary(rtkitctl)",
 				"font-cantarell",
+				"gdm-libs",
 				"geoclue",
 				"glib-networking",
 				"gnome-menus",
@@ -278,6 +279,6 @@
 		}
 	},
 	"source-name": "gnome-shell",
-	"source-release": "28",
+	"source-release": "29",
 	"source-version": "48.0"
 }

@@ -5,7 +5,7 @@
 #
 name        : gnome-shell
 version     : 48.0
-release     : 28
+release     : 29
 homepage    : https://gitlab.gnome.org/GNOME/gnome-shell
 upstreams   :
     - https://download.gnome.org/sources/gnome-shell/48/gnome-shell-48.0.tar.xz : 36aac2edcdc7588aaadb658cd4687df262b37ba0b667102dcbefbff0c2232bc3
@@ -61,6 +61,7 @@ rundeps     :
     - binary(Xwayland)
     - binary(rtkitctl)
     - font-cantarell
+    - gdm-libs
     - geoclue
     - glib-networking
     - gnome-menus
