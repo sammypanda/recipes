@@ -4,11 +4,11 @@
 # SPDX-License-Identifier: MPL-2.0
 #
 name        : libsoup
-version     : 3.6.4
-release     : 6
+version     : 3.6.5
+release     : 7
 homepage    : https://gitlab.gnome.org/GNOME/libsoup
 upstreams   :
-    - https://download.gnome.org/sources/libsoup/3.6/libsoup-3.6.4.tar.xz : 9b54c76f5276b05bebcaf2b6c2a141a188fc7bb1d0624eda259dac13a6665c8a
+    - https://download.gnome.org/sources/libsoup/3.6/libsoup-3.6.5.tar.xz : 6891765aac3e949017945c3eaebd8cc8216df772456dc9f460976fbdb7ada234
 summary     : libsoup is an HTTP client/server library for GNOME.
 description : |
     libsoup is an HTTP client/server library for GNOME. It uses GObjects and the glib main loop, to integrate well with GNOME applications.
