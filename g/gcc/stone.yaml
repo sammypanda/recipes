@@ -5,7 +5,7 @@
 #
 name        : gcc
 version     : 14.2.1+git.5b4e3622
-release     : 8
+release     : 9
 summary     : GNU C++ standard library and compiler
 license     : GPL-3.0-or-later
 homepage    : https://gcc.gnu.org/
@@ -43,10 +43,10 @@ tuning      :
 setup       : |
     %patch %(pkgdir)/perf/increase-vectorize-cost-model-to-cheap.patch
     %patch %(pkgdir)/perf/use-highest-optimize-value.patch
-    %patch %(pkgdir)/aeryn/0001-Use-modern-linker-locations-for-Serpent-OS.patch
-    %patch %(pkgdir)/aeryn/0001-Install-libraries-into-lib-rather-than-lib64.patch
-    %patch %(pkgdir)/aeryn/0001-Downstream-Don-t-run-fixincludes-during-install.patch
-    %patch %(pkgdir)/aeryn/disable-rpath.patch
+    %patch %(pkgdir)/aerynos/0001-Use-modern-linker-locations-for-Serpent-OS.patch
+    %patch %(pkgdir)/aerynos/0001-Install-libraries-into-lib-rather-than-lib64.patch
+    %patch %(pkgdir)/aerynos/0001-Downstream-Don-t-run-fixincludes-during-install.patch
+    %patch %(pkgdir)/aerynos/disable-rpath.patch
 
     mkdir build && cd build
     ../configure \
@@ -102,16 +102,16 @@ install     : |
     rm -rv %(installroot)%(datadir)/info
     rm -v %(installroot)/usr/lib*/*.la
 
-    # Temporary, make x86_64-aeryn-linux a target alias of x86_64-serpent-linux
+    # Temporary, make x86_64-aerynos-linux a target alias of x86_64-serpent-linux
     # The next step after this (after all toolchain packages are similarly updated)
     # is to rebuild with the new triple and create compat aliases the other way
     pushd %(installroot)/%(bindir)
     for i in c++ g++ gcc gcc-${major_version} gcc-ar gcc-nm gcc-ranlib gfortran ; do
-        ln -sv x86_64-serpent-linux-${i} x86_64-aeryn-linux-${i}
+        ln -sv x86_64-serpent-linux-${i} x86_64-aerynos-linux-${i}
     done
     popd
-    ln -srv %(installroot)/usr/include/c++/14/x86_64-serpent-linux %(installroot)/usr/include/c++/14/x86_64-aeryn-linux
-    ln -srv %(installroot)/usr/lib/gcc/x86_64-serpent-linux %(installroot)/usr/lib/gcc/x86_64-aeryn-linux
+    ln -srv %(installroot)/usr/include/c++/14/x86_64-serpent-linux %(installroot)/usr/include/c++/14/x86_64-aerynos-linux
+    ln -srv %(installroot)/usr/lib/gcc/x86_64-serpent-linux %(installroot)/usr/lib/gcc/x86_64-aerynos-linux
 
     # TODO: Remove once we can remove gcc-devel and gcc-32bit-devel from the index
     mkdir -p %(installroot)/usr/share/doc/replace/
