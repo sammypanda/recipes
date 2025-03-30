@@ -5,7 +5,7 @@
 #
 name        : glibc
 version     : 2.41+git.bcd4cf9d
-release     : 17
+release     : 18
 summary     : The GNU libc libraries
 license     :
     - GPL-2.0-or-later
@@ -66,9 +66,9 @@ environment : |
     "
 setup       : |
     %patch %(pkgdir)/perf/0001-Remove-RELR-dependency-check.patch
-    %patch %(pkgdir)/aeryn/0001-sysdeps-Add-support-for-default-directories.patch
-    %patch %(pkgdir)/aeryn/0001-Force-correct-RTLDLIST-for-ldd.patch
-    %patch %(pkgdir)/aeryn/0001-Compress-charmaps-with-zstd.patch
+    %patch %(pkgdir)/aerynos/0001-sysdeps-Add-support-for-default-directories.patch
+    %patch %(pkgdir)/aerynos/0001-Force-correct-RTLDLIST-for-ldd.patch
+    %patch %(pkgdir)/aerynos/0001-Compress-charmaps-with-zstd.patch
     %patch %(pkgdir)/stateless/make-hosts-file-stateless.patch
     %patch %(pkgdir)/stateless/Support-fallback-stateless-shells-path.patch
     %patch %(pkgdir)/stateless/Use-a-stateless-ld.so.conf.patch
@@ -120,9 +120,9 @@ profiles    :
     - emul32:
         setup: |
             %patch %(pkgdir)/perf/0001-Remove-RELR-dependency-check.patch
-            %patch %(pkgdir)/aeryn/0001-sysdeps-Add-support-for-default-directories.patch
-            %patch %(pkgdir)/aeryn/0001-Force-correct-RTLDLIST-for-ldd.patch
-            %patch %(pkgdir)/aeryn/0001-Compress-charmaps-with-zstd.patch
+            %patch %(pkgdir)/aerynos/0001-sysdeps-Add-support-for-default-directories.patch
+            %patch %(pkgdir)/aerynos/0001-Force-correct-RTLDLIST-for-ldd.patch
+            %patch %(pkgdir)/aerynos/0001-Compress-charmaps-with-zstd.patch
             %patch %(pkgdir)/stateless/make-hosts-file-stateless.patch
             %patch %(pkgdir)/stateless/Support-fallback-stateless-shells-path.patch
             %patch %(pkgdir)/stateless/Use-a-stateless-ld.so.conf.patch

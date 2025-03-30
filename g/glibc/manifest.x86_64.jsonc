@@ -8740,6 +8740,6 @@
 		}
 	},
 	"source-name": "glibc",
-	"source-release": "17",
+	"source-release": "18",
 	"source-version": "2.41+git.bcd4cf9d"
 }
