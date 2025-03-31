@@ -5,7 +5,7 @@
 #
 name        : llvm
 version     : 19.1.7
-release     : 22
+release     : 23
 summary     : Low Level Virtual Machine
 license     :
     - Apache-2.0 WITH LLVM-exception
@@ -58,16 +58,13 @@ environment : |
 
         # Full-fat (in the milk sense) build suitable for cross-compilation
         _BUILD_TARGETS="AArch64;AMDGPU;ARM;BPF;RISCV;SPIRV;WebAssembly;X86"
-        _PROJECTS="bolt;clang;clang-tools-extra;lld;llvm;polly"
+        _PROJECTS="bolt;clang;clang-tools-extra;flang;lld;llvm;mlir;polly"
         _RUNTIMES="compiler-rt;libcxx;libcxxabi;libunwind;offload;openmp"
     fi
 
     if [[ " ${PATH[*]} " =~ "ccache" ]]; then
         EXTRA_LLVM_FLAGS="-DLLVM_CCACHE_BUILD=ON"
     fi
-
-    # Without RPATH, we need help finding the right libraries to use
-    export LD_LIBRARY_PATH="%(workdir)/%(builddir)/lib%(libsuffix)"
 
     function apply_llvm_patches() {
         # Build-related patches, achieving adjustments/fixes to the build that cannot be done via cmake flags
@@ -172,6 +169,7 @@ environment : |
             -DLLVM_LIBDIR_SUFFIX=%(libsuffix) \
             -DLLVM_LINK_LLVM_DYLIB=ON \
             -DLLVM_PARALLEL_LINK_JOBS=1 \
+            -DLLVM_POLLY_LINK_INTO_TOOLS=OFF \
             -DLLVM_TARGET_ARCH=$_TARGET_ARCH \
             -DLLVM_TARGETS_TO_BUILD=$_BUILD_TARGETS \
             -DLLVM_TOOL_OPENMP_BUILD=ON \
@@ -297,44 +295,39 @@ profiles    :
             rm -v %(installroot)/usr/lib/libarcher_static.a
             # openmp (end)
 
-            ### Polly (begin)
-            # Delete libPolly.a
-            rm -rfv %(installroot)/%(libdir)/libPolly.a
-            # Polly (end)
-
             ### MLIR (begin)
-            # # Delete all libMLIR static libs
-            # rm -rfv %(installroot)/%(libdir)/libMLIR*.a
+            # Delete all libMLIR static libs
+            rm -rfv %(installroot)/%(libdir)/libMLIR*.a
             # MLIR (end)
 
             ### flang (begin)
-            # # Prior to LLVM 20 the flang binary is flang-new, create a symlink so we can call it as flang
-            # # TODO: Remove this with LLVM 20
-            # ln -sv flang-new %(installroot)/%(bindir)/flang
+            # Prior to LLVM 20 the flang binary is flang-new, create a symlink so we can call it as flang
+            # TODO: Remove this with LLVM 20
+            ln -sv flang-new %(installroot)/%(bindir)/flang
 
-            # # There are no known projects that build against Flang, so just delete all of the devel files
-            # # since they are unnecessary.
-            # rm -rfv %(installroot)/%(libdir)/cmake/flang
-            # rm -rfv %(installroot)/%(libdir)/libCUF*.a \
-            #         %(installroot)/%(libdir)/libFIR*.a \
-            #         %(installroot)/%(libdir)/libflang*.a \
-            #         %(installroot)/%(libdir)/libHLFIR*.a
+            # There are no known projects that build against Flang, so just delete all of the devel files
+            # since they are unnecessary.
+            rm -rfv %(installroot)/%(libdir)/cmake/flang
+            rm -rfv %(installroot)/%(libdir)/libCUF*.a \
+                    %(installroot)/%(libdir)/libFIR*.a \
+                    %(installroot)/%(libdir)/libflang*.a \
+                    %(installroot)/%(libdir)/libHLFIR*.a
 
-            # # We need libFortranDecimal and libFortranRuntime as they are linked into Fortran objects as a runtime
-            # # This is fundamentally similar to compiler-rt, and LLVM 21 actually renames this to flang-rt. We currently
-            # # only ship the .a versions of these as the ABI needs to be match the Flang one and it's possible that updating
-            # # a dynamic runtime would cause issues.
-            # find %(installroot)/%(libdir) -type f -name 'libFortran*.a' \
-            #                               -a ! -name 'libFortranDecimal.a' \
-            #                               -a ! -name 'libFortranRuntime.a' \
-            #                               -print -delete
+            # We need libFortranDecimal and libFortranRuntime as they are linked into Fortran objects as a runtime
+            # This is fundamentally similar to compiler-rt, and LLVM 21 actually renames this to flang-rt. We currently
+            # only ship the .a versions of these as the ABI needs to be match the Flang one and it's possible that updating
+            # a dynamic runtime would cause issues.
+            find %(installroot)/%(libdir) -type f -name 'libFortran*.a' \
+                                          -a ! -name 'libFortranDecimal.a' \
+                                          -a ! -name 'libFortranRuntime.a' \
+                                          -print -delete
 
-            # # Only Fortran .mod files are required for building Fortran code, delete every other header
-            # # as they are for flang itself and unnecessary if we don't have a flang-devel
-            # find %(installroot)/%(includedir)/flang -type f -a ! -iname '*.mod' -delete -print
+            # Only Fortran .mod files are required for building Fortran code, delete every other header
+            # as they are for flang itself and unnecessary if we don't have a flang-devel
+            find %(installroot)/%(includedir)/flang -type f -a ! -iname '*.mod' -delete -print
 
-            # # Delete any now-empty include directories
-            # find %(installroot)/%(includedir)/flang -type d -empty -print -delete
+            # Delete any now-empty include directories
+            find %(installroot)/%(includedir)/flang -type d -empty -print -delete
             # flang (end)
 
             ### libcxx/libunwind (begin)
@@ -390,7 +383,7 @@ packages    :
         rundeps:
             - pkgconfig(libedit)
             - pkgconfig(libzstd)
-            # - mlir-devel
+            - mlir-devel
             - polly-devel
 
     - "%(name)-32bit":
@@ -707,6 +700,7 @@ packages    :
         description: |
             LLVM Framework for High-Level Loop and Data-Locality Optimizations
         paths:
+            - /usr/lib/libPolly.so.*
             - /usr/lib/libPollyISL.so
             - /usr/lib/LLVMPolly.so
 
@@ -719,3 +713,4 @@ packages    :
         paths:
             - /usr/include/polly
             - /usr/lib/cmake/polly
+            - /usr/lib/libPolly.so
