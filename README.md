@@ -116,7 +116,7 @@ Try invoking `pushd m/m4/ && just build` or `pushd n/nano && just build` for a q
 
 ## Git summary requirements
 
-To keep git summaries readable, Aeryn-os requires the following git summary format
+To keep git summaries readable, AerynOS requires the following git summary format
 
 - `name: Add at v<version>`
 - `name: Update to v<version>`
