@@ -2506,6 +2506,6 @@
 		}
 	},
 	"source-name": "gcc",
-	"source-release": "9",
+	"source-release": "10",
 	"source-version": "14.2.1+git.5b4e3622"
 }
