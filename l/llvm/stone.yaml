@@ -5,7 +5,7 @@
 #
 name        : llvm
 version     : 19.1.7
-release     : 23
+release     : 24
 summary     : Low Level Virtual Machine
 license     :
     - Apache-2.0 WITH LLVM-exception
@@ -76,6 +76,10 @@ environment : |
         %patch %(pkgdir)/patches/build/0001-downstream-Suppress-runpath-in-openmp.patch
         %patch %(pkgdir)/patches/build/0001-compiler-rt-Force-libc.patch
         %patch %(pkgdir)/patches/build/0001-bolt-Set-version-string.patch
+        %patch %(pkgdir)/patches/build/0001-openmp-Don-t-install-static-libarcher.patch
+        %patch %(pkgdir)/patches/build/0001-flang-Add-install-targets-for-mod-header.patch
+        %patch %(pkgdir)/patches/build/0001-polly-Create-targets-for-headers-cmake.patch
+        %patch %(pkgdir)/patches/build/0001-lld-Create-target-for-header.patch
 
         # Runtime config changes. These often duplicate settings set by our CFLAGS/LDFLAGS and are intended as sane
         # defaults when a build either doesn't respect our flags or when a user is building a project outside of
@@ -182,6 +186,133 @@ environment : |
             $EXTRA_LLVM_FLAGS \
             "$@"
     }
+
+    # Inspired by Gentoo, use LLVM_DISTRIBUTION_COMPONENTS to avoid installing static libs
+    # and other unnecessary things. This works by extracting the target list from ninja and
+    # filtering it to only have the things we really need. This way when cmake target files
+    # are generated it results in the components we didn't include not being added to the
+    # searched for objects.
+    ## NOTE: New versions of LLVM should be built without this in order to see what's been
+    ## added/removed and this list updated correspondingly.
+    function get_distribution_components() {
+        # This generates a lot of output that we don't need to see
+        set +x
+        local target
+        ninja -C "%(builddir)" -t targets | grep -Po 'install-\K.*(?=-stripped:)' | while read -r target; do
+            case $target in
+                distribution)
+                    continue
+                    ;;
+
+                ### LLVM
+                llvm-libraries)
+                    continue
+                    ;;
+                # shared libraries
+                LLVM|LLVMgold|LTO|Remarks)
+                    ;;
+                # used by lldb
+                LLVMDebuginfod)
+                    ;;
+                # Devel
+                llvm-headers|cmake-exports)
+                    ;;
+                # Bins
+                FileCheck|UnicodeNameMappingGenerator|bugpoint|dsymutil|llc|lli|obj2yaml|opt|opt-viewer|reduce-chunk-list|sancov|sanstats|split-file|verify-uselistorder|yaml2obj)
+                    ;;
+                # Devel bins
+                count|lli-child-target|not|yaml-bench)
+                    ;;
+                # Various binaries (everything we don't want has already been excluded)
+                llvm-*)
+                    ;;
+
+                ### Clang
+                clang-libraries)
+                    continue
+                    ;;
+                clang-tidy-headers)
+                    continue
+                    ;;
+                # Libs
+                libclang|clang-cpp)
+                    ;;
+                clang|clangd|clang-*|bash-autocomplete)
+                    ;;
+                # Other clang tools
+                amdgpu-arch|c-index-test|diagtool|find-all-symbols|hmaptool|modularize|nvptx-arch|pp-trace|scan-view|scan-build*)
+                    ;;
+                clang*|findAllSymbols)
+                    continue
+                    ;;
+
+                ### LLD
+                # Shared libraries
+                lld*)
+                    ;;
+                # Devel
+                lld-headers|lld-cmake-exports)
+                    ;;
+
+                ### Polly
+                # Libs
+                Polly|PollyISL|LLVMPolly)
+                    ;;
+                # Devel
+                polly-headers|polly-cmake-exports)
+                    ;;
+
+                ### BOLT
+                bolt)
+                    ;;
+
+                ### MLIR
+                mlir-libraries)
+                    continue
+                    ;;
+                # Shared libs
+                MLIR|MLIR-C|MLIRExecutionEngineShared)
+                    ;;
+                # Target libs
+                mlir_*)
+                    ;;
+                # MLIR tools
+                mlir-*|tblgen-lsp-server|tblgen-to-irdl)
+                    ;;
+                # Devel
+                mlir-headers|mlir-cmake-exports)
+                    ;;
+                # MLIR dependencies
+                MLIRSparseTensorRuntime|MLIRSparseTensorEnums)
+                    ;;
+
+                ### Flang
+                # Flang itself
+                flang-new)
+                    ;;
+                # Supporting tools
+                bbc|tco|f18-parse-demo|fir-opt)
+                    ;;
+                # Flang-rt libraries
+                FortranRuntime|FortranDecimal)
+                    ;;
+                # Fortran build files
+                flang-binding|flang-mod)
+                    ;;
+
+                ### built-ins, Runtimes
+                builtins|runtimes)
+                    ;;
+
+                ### Deny everything else
+                *)
+                    continue
+                    ;;
+            esac
+            echo $target
+        done
+        set -x
+    }
 profiles    :
     - emul32:
         setup:   |
@@ -193,17 +324,22 @@ profiles    :
                 -DLLVM_USE_LINKER="lld" \
                 -DCMAKE_C_FLAGS="$CFLAGS -m32" \
                 -DCMAKE_CXX_FLAGS="$CXXFLAGS -m32"
+
+            distribution_components=$(get_distribution_components | paste -sd\;)
+            test -n "$distribution_components"
+            cmake_llvm_configure -S llvm \
+                -DLLVM_USE_LINKER="lld" \
+                -DCMAKE_C_FLAGS="$CFLAGS -m32" \
+                -DCMAKE_CXX_FLAGS="$CXXFLAGS -m32" \
+                -DLLVM_DISTRIBUTION_COMPONENTS="$distribution_components"
         build:   |
             %ccache_zero
-            %cmake_build
+            %cmake_build distribution
             %ccache_stats
         install: |
-            %cmake_install
+            DESTDIR="%(installroot)" ninja install-distribution -v -j "%(jobs)" -C "%(builddir)"
 
             ### LLVM (begin)
-            # Delete all libLLVM static libs
-            rm -rfv %(installroot)/%(libdir)/libLLVM*.a
-
             # Force this to 32-bit specific configuration
             mv %(installroot)%(bindir)/llvm-config %(installroot)%(bindir)/llvm-config32
             mv %(installroot)%(includedir)/llvm/Config/llvm-config.h %(installroot)%(includedir)/llvm/Config/llvm-config32.h
@@ -231,14 +367,18 @@ profiles    :
 
             # find pgo-training -name "clang.profdata" -exec mv {} %(workdir) \;
 
+            cmake_llvm_configure llvm
+
+            distribution_components=$(get_distribution_components | paste -sd\;)
+            test -n "$distribution_components"
             cmake_llvm_configure llvm \
-                # -DLLVM_PROFDATA_FILE=%(workdir)/clang.profdata
+                -DLLVM_DISTRIBUTION_COMPONENTS="$distribution_components"
         build:   |
             %ccache_zero
-            %cmake_build
+            %cmake_build distribution
             %ccache_stats
         install: |
-            %cmake_install
+            DESTDIR="%(installroot)" ninja install-distribution -v -j "%(jobs)" -C "%(builddir)"
 
             # TODO: Restore the bolt'd build
 
@@ -269,9 +409,6 @@ profiles    :
             %install_dir %(installroot)/%(libdir)/bfd-plugins
             ln -srf %(installroot)/%(libdir)/LLVMgold.so %(installroot)/%(libdir)/bfd-plugins/LLVMgold.so
 
-            # Delete all libLLVM static libs
-            rm -rfv %(installroot)/%(libdir)/libLLVM*.a
-
             # Finish supporting 32 & 64bit llvm config headers
             mv %(installroot)%(includedir)/llvm/Config/llvm-config.h %(installroot)%(includedir)/llvm/Config/llvm-config64.h
             %install_file %(pkgdir)/llvm-config.h %(installroot)%(includedir)/llvm/Config/llvm-config.h
@@ -285,49 +422,10 @@ profiles    :
             done
             # LLVM (end)
 
-            ### Clang (begin)
-            # We probably don't need this
-            rm -rfv %(installroot)/%(includedir)/clang-tidy
-            # Clang (end)
-
-            ### openmp (begin)
-            # Remove static libs with equivalent shared libraries
-            rm -v %(installroot)/usr/lib/libarcher_static.a
-            # openmp (end)
-
-            ### MLIR (begin)
-            # Delete all libMLIR static libs
-            rm -rfv %(installroot)/%(libdir)/libMLIR*.a
-            # MLIR (end)
-
             ### flang (begin)
             # Prior to LLVM 20 the flang binary is flang-new, create a symlink so we can call it as flang
             # TODO: Remove this with LLVM 20
             ln -sv flang-new %(installroot)/%(bindir)/flang
-
-            # There are no known projects that build against Flang, so just delete all of the devel files
-            # since they are unnecessary.
-            rm -rfv %(installroot)/%(libdir)/cmake/flang
-            rm -rfv %(installroot)/%(libdir)/libCUF*.a \
-                    %(installroot)/%(libdir)/libFIR*.a \
-                    %(installroot)/%(libdir)/libflang*.a \
-                    %(installroot)/%(libdir)/libHLFIR*.a
-
-            # We need libFortranDecimal and libFortranRuntime as they are linked into Fortran objects as a runtime
-            # This is fundamentally similar to compiler-rt, and LLVM 21 actually renames this to flang-rt. We currently
-            # only ship the .a versions of these as the ABI needs to be match the Flang one and it's possible that updating
-            # a dynamic runtime would cause issues.
-            find %(installroot)/%(libdir) -type f -name 'libFortran*.a' \
-                                          -a ! -name 'libFortranDecimal.a' \
-                                          -a ! -name 'libFortranRuntime.a' \
-                                          -print -delete
-
-            # Only Fortran .mod files are required for building Fortran code, delete every other header
-            # as they are for flang itself and unnecessary if we don't have a flang-devel
-            find %(installroot)/%(includedir)/flang -type f -a ! -iname '*.mod' -delete -print
-
-            # Delete any now-empty include directories
-            find %(installroot)/%(includedir)/flang -type d -empty -print -delete
             # flang (end)
 
             ### libcxx/libunwind (begin)
@@ -378,6 +476,7 @@ packages    :
             - /usr/lib/cmake/llvm
             - /usr/lib/libLLVM.so
             - /usr/lib/libLLVM-*.so
+            - /usr/lib/libLLVM*.a
             - /usr/lib/libLTO.so
             - /usr/lib/libRemarks.so
         rundeps:
@@ -404,6 +503,7 @@ packages    :
             - /usr/lib32/cmake/llvm
             - /usr/lib32/libLLVM.so
             - /usr/lib32/libLLVM-*.so
+            - /usr/lib32/libLLVM*.a
             - /usr/lib32/libLTO.so
             - /usr/lib32/libRemarks.so
 
@@ -647,6 +747,7 @@ packages    :
             - /usr/include/mlir
             - /usr/include/mlir-c
             - /usr/lib/cmake/mlir
+            - /usr/lib/libMLIR*.a
             - /usr/lib/libMLIR*.so
             - /usr/lib/libmlir*.so
         rundeps:
