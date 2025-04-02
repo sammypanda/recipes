@@ -4,6 +4,7 @@
 	"packages": {
 		"python-hatchling": {
 			"build-depends": [
+				"python(packaging)",
 				"python(pathspec)",
 				"python(pluggy)",
 				"python(trove-classifiers)"
@@ -234,6 +235,6 @@
 		}
 	},
 	"source-name": "python-hatchling",
-	"source-release": "3",
+	"source-release": "4",
 	"source-version": "1.27.0"
 }
