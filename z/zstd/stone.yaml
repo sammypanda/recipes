@@ -5,7 +5,7 @@
 #
 name        : zstd
 version     : 1.5.7
-release     : 8
+release     : 9
 summary     : Fast real-time compression algorithm
 license     :
     - BSD-3-Clause
@@ -19,6 +19,8 @@ builddeps   :
     - pkgconfig(liblz4)
     - pkgconfig(liblzma)
     - pkgconfig(zlib)
+rundeps     :
+    - "%(name)-libs"
 emul32      : yes
 environment : |
     export CFLAGS="${CFLAGS} -mllvm -vp-counters-per-site=2"

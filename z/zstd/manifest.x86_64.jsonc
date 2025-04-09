@@ -16,7 +16,8 @@
 				"soname(liblzma.so.5(x86_64))",
 				"soname(libunwind.so.1(x86_64))",
 				"soname(libz.so.1(x86_64))",
-				"soname(libzstd.so.1(x86_64))"
+				"soname(libzstd.so.1(x86_64))",
+				"zstd-libs"
 			],
 			"files": [
 				"/usr/bin/pzstd",
@@ -134,6 +135,6 @@
 		}
 	},
 	"source-name": "zstd",
-	"source-release": "8",
+	"source-release": "9",
 	"source-version": "1.5.7"
 }
