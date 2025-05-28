@@ -1,0 +1,31 @@
+#
+# SPDX-FileCopyrightText: © 2020-2025 Serpent OS Developers
+#
+# SPDX-License-Identifier: MPL-2.0
+#
+name: v4l2loopback
+version: v0.13.2
+release: 1
+homepage: https://github.com/v4l2loopback/v4l2loopback
+upstreams:
+    - https://github.com/v4l2loopback/v4l2loopback/archive/refs/tags/v0.13.2.tar.gz: 1e57e1e382d7451aa2a88d63cc9f146eab1f425b90e76104d4c3d73127e34771
+summary: This module allows you to create "virtual video devices".
+description: |
+    This module allows you to create "virtual video devices".
+license: GPL-2.0-only
+builddeps:
+    - binary(flex)
+    - binary(gcc)
+    - binary(jq)
+    - binutils
+    - linux-desktop-devel
+    - linux-headers
+    - zstd
+environment : |
+    export KERNEL_UNAME=`jq --raw-output .version /usr/lib/kernel/*.desktop/boot.json` || exit 1
+build: |
+    %make KCPPFLAGS="-DMODULE -DSMP" CC=%(cc) LD=%(ld)
+install: |
+    %make_install
+    %install_dir %(installroot)%(docdir)/v4l2loopback
+    echo "This file will disappear when virtual packages are introduced" > %(installroot)%(docdir)/v4l2loopback/README

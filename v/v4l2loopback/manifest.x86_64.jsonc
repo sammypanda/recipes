@@ -1,0 +1,24 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"v4l2loopback": {
+			"build-depends": [
+				"binary(flex)",
+				"binary(gcc)",
+				"binary(jq)",
+				"binutils",
+				"linux-desktop-devel",
+				"linux-headers",
+				"zstd"
+			],
+			"files": [
+				"/usr/share/doc/v4l2loopback/README"
+			],
+			"name": "v4l2loopback"
+		}
+	},
+	"source-name": "v4l2loopback",
+	"source-release": "1",
+	"source-version": "v0.13.2"
+}

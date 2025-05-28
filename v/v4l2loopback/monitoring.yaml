@@ -1,0 +1,7 @@
+releases:
+  id: 10956
+  rss: https://github.com/v4l2loopback/v4l2loopback/releases.atom
+security:
+  cpe:
+  - vendor: v4l2loopback_project
+    product: v4l2loopback
