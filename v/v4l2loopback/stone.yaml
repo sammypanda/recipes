@@ -21,8 +21,6 @@ builddeps:
     - linux-desktop-devel
     - linux-headers
     - zstd
-environment : |
-    export KERNEL_UNAME=`jq --raw-output .version /usr/lib/kernel/*.desktop/boot.json` || exit 1
 build: |
     %make KCPPFLAGS="-DMODULE -DSMP" CC=%(cc) LD=%(ld)
 install: |
