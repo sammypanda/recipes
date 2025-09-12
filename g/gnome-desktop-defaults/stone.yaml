@@ -6,7 +6,7 @@
 #
 name        : gnome-desktop-defaults
 version     : "0.1.0"
-release     : 11
+release     : 12
 license     : MPL-2.0
 homepage    : https://aerynos.com
 summary     : Default settings and dependencies for GNOME desktop
@@ -19,6 +19,7 @@ rundeps     :
     - gnome-shell-extension-appindicator
     - morewaita-icon-theme
     - os-artwork
+    - zorin-exec-guard
 install     : |
     %install_dir %(installroot)%(datadir)/glib-2.0/schemas
     %install_file %(pkgdir)/10_*.gschema.override %(installroot)%(datadir)/glib-2.0/schemas/.

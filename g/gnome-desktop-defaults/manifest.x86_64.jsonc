@@ -9,7 +9,8 @@
 				"gnome-browser-connector",
 				"gnome-shell-extension-appindicator",
 				"morewaita-icon-theme",
-				"os-artwork"
+				"os-artwork",
+				"zorin-exec-guard"
 			],
 			"files": [
 				"/usr/share/glib-2.0/schemas/10_org.gnome.desktop.a11y.keyboard.gschema.override",
@@ -27,6 +28,6 @@
 		}
 	},
 	"source-name": "gnome-desktop-defaults",
-	"source-release": "11",
+	"source-release": "12",
 	"source-version": "0.1.0"
 }

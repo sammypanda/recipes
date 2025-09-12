@@ -1,0 +1,22 @@
+Patch-Source: sammypanda
+--
+--- a/zorin_exec_guard/exec_guard.py
++++ b/zorin_exec_guard/exec_guard.py
+@@ -23,11 +23,11 @@ gi.require_version('Gtk', '3.0')
+ gi.require_version('Flatpak', '1.0')
+ from gi.repository import Gtk, Gio, GLib, Flatpak, GObject
+ 
+-import apt
+-from aptdaemon.client import AptClient
+-from aptdaemon.gtk3widgets import AptErrorDialog, AptProgressDialog
+-import aptdaemon.errors
+-from aptdaemon.enums import *
++#import apt
++#from aptdaemon.client import AptClient
++#from aptdaemon.gtk3widgets import AptErrorDialog, AptProgressDialog
++#import aptdaemon.errors
++#from aptdaemon.enums import *
+ 
+ t = gettext.translation('zorin-exec-guard', '/usr/share/locale',
+                         fallback=True)
+

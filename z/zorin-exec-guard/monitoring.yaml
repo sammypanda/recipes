@@ -1,0 +1,5 @@
+releases:
+  id: 383572
+  rss: https://github.com/ZorinOS/zorin-exec-guard/releases.atom
+security:
+  cpe: ~ # No CPE found, last checked (2025-09-12)

@@ -1,0 +1,15 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"zorin-exec-guard-app-db": {
+			"files": [
+				"/usr/share/zorin-exec-guard/app_db.json"
+			],
+			"name": "zorin-exec-guard-app-db"
+		}
+	},
+	"source-name": "zorin-exec-guard-app-db",
+	"source-release": "1",
+	"source-version": "1.4"
+}

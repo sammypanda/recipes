@@ -1,0 +1,20 @@
+#
+# SPDX-FileCopyrightText: © 2020-2025 Serpent OS Developers
+#
+# SPDX-License-Identifier: MPL-2.0
+#
+name        : zorin-exec-guard-app-db
+version     : 1.4
+release     : 1
+homepage    : https://github.com/ZorinOS/zorin-exec-guard-app-db
+upstreams   :
+    - https://github.com/ZorinOS/zorin-exec-guard-app-db/archive/refs/heads/master.zip : 49b71ca4b3469515b3a8647f048806564c18577d9d2fb89e1f5cb8214fb11631
+summary     : A database of app executables and their recommended alternatives. 
+description : |
+    A database of app executables and their recommended alternatives. 
+license     : 
+    - GPL-2.0-or-later
+    - GPL-2.0-only
+install     : |
+    mkdir -p %(installroot)/usr/share/zorin-exec-guard
+    %install_file %(workdir)/app_db.json %(installroot)/usr/share/zorin-exec-guard/app_db.json

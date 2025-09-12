@@ -1,0 +1,28 @@
+#
+# SPDX-FileCopyrightText: © 2020-2025 Serpent OS Developers
+#
+# SPDX-License-Identifier: MPL-2.0
+#
+name        : zorin-exec-guard
+version     : 1.5.7
+release     : 1
+homepage    : https://github.com/ZorinOS/zorin-exec-guard
+upstreams   :
+    - https://github.com/ZorinOS/zorin-exec-guard/archive/refs/tags/1.5.7.tar.gz : 2da9342ff038b69d0dbf381e93970a6f4b32ba6d22bb5755e5aacd915114f410
+summary     : Recommends trusted alternatives to Linux or Windows executables. 
+description : |
+    Zorin Exec Guard shows a warning when attempting to run unknown Linux or Windows executables and offers more trusted alternatives.
+license     : 
+    - GPL-3.0-or-later
+    - GPL-3.0-only
+builddeps   :
+    - binary(xgettext)
+    - python-distutils-extra 
+rundeps     :
+    - zorin-exec-guard-app-db
+setup       : |
+    %patch %(pkgdir)/patches/apt-to-moss.patch
+build       : |
+    %python_setup
+install     : |
+    %python_install
