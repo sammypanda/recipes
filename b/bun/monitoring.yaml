@@ -1,0 +1,5 @@
+releases:
+  id: 372727
+  rss: https://github.com/oven-sh/bun/releases.atom
+security:
+  cpe: ~ # No CPE found, last checked (2025-09-18)

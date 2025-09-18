@@ -1,0 +1,20 @@
+#
+# SPDX-FileCopyrightText: © 2020-2025 Serpent OS Developers
+#
+# SPDX-License-Identifier: MPL-2.0
+#
+name        : bun
+version     : 1.2.22
+release     : 1
+homepage    : https://github.com/oven-sh/bun
+upstreams   :
+    - https://github.com/oven-sh/bun/releases/download/bun-v1.2.22/bun-linux-x64.zip : 4c446af1a01d7b40e1e11baebc352f9b2bfd12887e51b97dd3b59879cee2743a
+summary     : JavaScript runtime, bundler, transpiler and package manager
+description : |
+    All in one fast & easy-to-use tool. Instead of 1,000 node_modules for development, you only need bun.
+license     : MIT
+networking  : true
+builddeps   :
+    - binary(unzip)
+install     : |
+    %install_bin bun

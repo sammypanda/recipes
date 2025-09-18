@@ -1,0 +1,29 @@
+/** Human readable report. This is not consumed by boulder */
+{
+	"manifest-version": "0.2",
+	"packages": {
+		"bun": {
+			"build-depends": [
+				"binary(unzip)"
+			],
+			"depends": [
+				"interpreter(/lib64/ld-linux-x86-64.so.2(x86_64))",
+				"soname(ld-linux-x86-64.so.2(x86_64))",
+				"soname(libc.so.6(x86_64))",
+				"soname(libdl.so.2(x86_64))",
+				"soname(libm.so.6(x86_64))",
+				"soname(libpthread.so.0(x86_64))"
+			],
+			"files": [
+				"/usr/bin/bun"
+			],
+			"name": "bun",
+			"provides": [
+				"binary(bun)"
+			]
+		}
+	},
+	"source-name": "bun",
+	"source-release": "1",
+	"source-version": "1.2.22"
+}
